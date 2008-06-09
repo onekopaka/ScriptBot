@@ -29,7 +29,7 @@ function MyBot() {
 		this.setName("ScriptBot");
 		this.setLogin("ScriptBot");
 		this.setFinger("Shouldn't you have a glove on?");
-		this.setVersion("ScriptBot r58 by AMcBain, mzz, and onekopaka.");
+		this.setVersion("ScriptBot trunk by AMcBain, mzz, and onekopaka.");
 		this.setAutoNickChange(true);
 
 		// Set the server to connect to.
