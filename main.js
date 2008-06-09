@@ -232,48 +232,61 @@ function MyBot() {
 
 	this.onMessage = function(channel, sender, login, hostname, message) {
 		var key = "$";
-		var botname = this.getNick();
-		// Just incase someone wasn't too lazy to type out our full name.
-		message = message.trim().replaceAll("^" + this.getNick() + ".?", key);
+		// Convert the java string to a js string to get replace taking a RegExp.
+		// Err, why is there no trim() method on js strings? This is pretty horrible.
+		print('pre:' + String(message));
+		message = String(message).replace(/^\s*(.*?)\s*$/, '$1');
+		print('post:' + message);
 
-		// Get the token and true message contents.
-		var msg = message.split("\\s+");
-		var token = msg[1];
-		if(msg[0] != key) {
-			token = msg[0].substring(1);
-			message = message.replace(key + token, "");
+		// TODO: tweak the exact whitespace and punctuation rules used here.
+		if(message[0] === key) {
+			// Accept both '$doit' and '$ doit'.
+			message = message.substring(1).replace(/ ?/, '');
 		} else {
-			message = message.replace(key + message.substring(key.length, message.indexOf(token)) + token, "");
-		}
-		message = message.trim();
-
-		// Only if there is a message addressed to us
-		if(msg[0].indexOf(key) === 0) {
-
-			// Search built-in commands for a match.
-			var cmd = commands[token];
-			var err = "Command";
-
-			// Search plugins if there are no built in commands with the requested name.
-			if(cmd === undefined) {
-				cmd = plugins[token];
-				err = "Plugin";
-			}
-
-			// If there was a command with that name, pass it stuff. Otherwise report not found.
-			if(cmd !== undefined) {
-				// Safety.
-				try {
-					// Execute (convert Java Strings to JS strings)
-					cmd(this, channel + "", sender + "", message + "");
-				} catch(e) {
-					// Log error in both places.
-					this.sendMessage(channel, err + " failed. (error)");
-					print(err + " '" + token + "': " + e);
-				}
+			// Respond to "ournick: blah", "ournick, blah", and "ournick blah".
+			var nickRe = new RegExp('^' + this.getNick() + '[,:]? ');
+			if(message.match(nickRe)) {
+				message = message.replace(nickRe, '');
 			} else {
-				this.sendMessage(channel, "I'm sorry, I don't recognize that command.");
+				// We are not being addressed. Bail.
+				return;
 			}
+		}
+
+		// Now chomp off the command name:
+		var index = message.indexOf(' ');
+		var token;
+		if(index === -1) {
+			token = message;
+			message = '';
+		} else {
+			token = message.slice(0, index);
+			message = message.slice(index + 1);
+		}
+
+		// Search built-in commands for a match.
+		var cmd = commands[token];
+		var err = "Command";
+
+		// Search plugins if there are no built in commands with the requested name.
+		if(cmd === undefined) {
+			cmd = plugins[token];
+			err = "Plugin";
+		}
+
+		// If there was a command with that name, pass it stuff. Otherwise report not found.
+		if(cmd !== undefined) {
+			// Safety.
+			try {
+				// Execute (convert Java Strings to JS strings)
+				cmd(this, channel + "", sender + "", message + "");
+			} catch(e) {
+				// Log error in both places.
+				this.sendMessage(channel, err + " failed. (error)");
+				print(err + " '" + token + "': " + e);
+			}
+		} else {
+			this.sendMessage(channel, "I'm sorry, I don't recognize that command.");
 		}
 	};
 
