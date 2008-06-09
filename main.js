@@ -234,9 +234,7 @@ function MyBot() {
 		var key = "$";
 		// Convert the java string to a js string to get replace taking a RegExp.
 		// Err, why is there no trim() method on js strings? This is pretty horrible.
-		print('pre:' + String(message));
 		message = String(message).replace(/^\s*(.*?)\s*$/, '$1');
-		print('post:' + message);
 
 		// TODO: tweak the exact whitespace and punctuation rules used here.
 		if(message[0] === key) {
