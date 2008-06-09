@@ -1,0 +1,17 @@
+ScriptBot by AMcBain
+
+Some stuff from irc.mozilla.org/#bots
+
+<AMcBain> (on a side note, that isn't pure Rhino, I hacked PircBot inside it and reJARed it)
+
+<AMcBain> whatever suits. I mean it's a bot that uses PircBot to get onto IRC then after that, the rest is all JavaScript.
+
+Summary
+
+* Based on Rhino with PircBot added in.
+* Most is Javascript
+* Requires both js.jar and PircBot.jar
+
+Other Notes
+
+You MUST have java in your path. else, it won't work.
