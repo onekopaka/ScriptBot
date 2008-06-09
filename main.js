@@ -29,7 +29,7 @@ function MyBot() {
 		this.setName("ScriptBot");
 		this.setLogin("ScriptBot");
 		this.setFinger("Shouldn't you have a glove on?");
-		this.setVersion("ScriptBot trunk by AMcBain, mzz, and onekopaka.");
+		this.setVersion("ScriptBot trunk - http://oks.verymad.net/ScriptBot/");
 		this.setAutoNickChange(true);
 
 		// Set the server to connect to.
@@ -232,7 +232,7 @@ function MyBot() {
 
 	this.onMessage = function(channel, sender, login, hostname, message) {
 		var key = "$";
-		var botname = this.getNick();
+        var botname = this.getNick();
 		// Just incase someone wasn't too lazy to type out our full name.
 		message = message.trim().replaceAll("^" + this.getNick() + ".?", key);
 
