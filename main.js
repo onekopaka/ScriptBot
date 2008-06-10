@@ -227,7 +227,8 @@ function MyBot() {
 		unload: "'unload <name>' unloads a plugin called <name>. To prevent any more security holes than there already are, there is no 'load' command.",
 		commands: "'commands'lists all currently recognized commands and plugins.",
 		help: "'help <name>' lists the help entry for <name>, if any. For a list of commands, 'commands' does the trick.",
-		load: "Currently, there is no load function. Expect this once we are able to import external JavaScript files."
+		load: "Currently, there is no load function. Expect this once we are able to import external JavaScript files.",
+		weather: "Weather is the first thing to be implemented. We're working on it."
 	};
 
 	this.onMessage = function(channel, sender, login, hostname, message) {
