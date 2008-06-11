@@ -4,7 +4,6 @@ try {
 	importClass(java.lang.Thread);
 	importClass(java.lang.Runnable);
 	importClass(java.util.ArrayList);
-	importPackage(java.io);
 	importPackage(java.net);
 } catch (e) {
 	print(e + "\n");
@@ -161,9 +160,9 @@ function MyBot() {
 			reportxhr = new XMLHttpRequest();
 			reportxhr.open(GET, "ftp://tgftp.nws.noaa.gov/data/observations/metar/stations/" + message + ".txt", true);
 			bot.sendMessage(channel, sender + ": " + reportxhr.responseText);*/
-			/* Java & JavaScript blend, too much java.*/
-			var metarreport = new URL("http://weather.noaa.gov/pub/data/observations/metar/stations/" + message + ".txt");
-			bot.sendMessage(channel, sender + ": " + metarreport);
+			/* Java & JavaScript blend, too much java.
+			URL metarreport = new URL("http://weather.noaa.gov/pub/data/observations/metar/stations/" + message + ".txt");
+			bot.sendMessage(channel, sender + ": " + metarreport);*/
 		},
 		unload: function(bot, channel, sender, message) {
 
