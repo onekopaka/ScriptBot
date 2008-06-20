@@ -12,7 +12,7 @@ try {
 
 // Help
 print("*NIX    - press ^C to force the program to end");
-print("Windows - press ^C, then type 'y' to force end");
+print("Windows - press ^C, then type 'y' then hit 'enter' to force end");
 print("All     - say '$quit' in a channel the bot is in\n");
 
 // Begin bot code
