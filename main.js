@@ -373,7 +373,7 @@ bot.setCommands({
 	},
 
 	echo: function(bot, channel, sender, message) {
-		bot.sendMessage(channel, message);
+		bot.sendMessage(channel, sender + ": " + message);
 	},
 
 	slap: function(bot, channel, sender, message) {
