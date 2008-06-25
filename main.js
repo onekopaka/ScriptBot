@@ -204,6 +204,35 @@ function MyBot() {
 			bot.sendMessage(channel, sender + ": " + plgnStr);
 		},
 
+		classicrock: function(bot, channel, sender, message) {
+			
+			//Check if we have the quotes already loaded, if not, load 'em up! Rawhide!!!
+			if(classicrockquotes == undefined) {
+				var classicrockquotes = new Array();
+				classicrockquotes.push("I don't know, I was really drunk at the time.");
+				classicrockquotes.push("A Short Sharp Shock.");
+				classicrockquotes.push("There's a lady who's sure all that glitters is gold, and she's buying a Stairway to Heaven");
+				};
+			var quotechoice = Math.floor(Math.random()*3);
+			
+			switch(quotechoice) {
+			
+				case 0 :
+					var quote = classicrockquotes[0];
+					break;
+				
+				case 1 :
+					var quote = classicrockquotes[1];
+					break;
+				
+				case 2 :
+					var quote = classicrockquotes[2];
+					break;
+			}
+			
+			bot.sendMessage(channel, sender + ": '" + quote + "'");
+		},
+		
 		help: function(bot, channel, sender, message) {
 
 			// Search built-in commands for a match.
@@ -240,7 +269,8 @@ function MyBot() {
 		commands: "'commands'lists all currently recognized commands and plugins.",
 		help: "'help <name>' lists the help entry for <name>, if any. For a list of commands, 'commands' does the trick.",
 		load: "Currently, there is no load function. Expect this once we are able to import external JavaScript files.",
-		weather: "Weather is the first thing to be implemented. We're working on it."
+		weather: "Weather is the first thing to be implemented. We're working on it.",
+		classicrock: "Sends you some famous classic rock quotes."
 	};
 
 	this.onMessage = function(channel, sender, login, hostname, message) {
@@ -405,9 +435,9 @@ bot.setCommands({
 bot.setCommandsHelp({
 	time: "'time' returns the current time based on the bot's current timezone.",
 	echo: "Call 'echo <stuff>' and the bot repeats <stuff> back to you.",
-	slap: "*snicker*",
+	slap: "Don't you just feel like slapping someone today?",
 	bot: "Syntax 'say <stuff> to <nick>'",
-	die: "Kill you? Okay.  *bang*",
+	die: "Kill you? Okay. *bang*",
 	rock: "Chooses 'rock' in a game of rock-paper-scissors.",
 	paper: "Chooses 'paper' in a game of rock-paper-scissors.",
 	scissors: "Chooses 'scissors' in a game of rock-paper-scissors."
