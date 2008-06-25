@@ -213,8 +213,9 @@ function MyBot() {
 				classicrockquotes.push("A Short Sharp Shock.");
 				classicrockquotes.push("There's a lady who's sure all that glitters is gold, and she's buying a Stairway to Heaven.");
 				classicrockquotes.push("They stab it with their steely knifes, but they just can't kill the beast!");
-				};
-			var quotechoice = Math.floor(Math.random()*4);
+				classicrockquotes.push("You can check out anytime you like, but you can never leave!");
+			};
+			var quotechoice = Math.floor(Math.random()*5);
 			
 			switch(quotechoice) {
 			
@@ -232,6 +233,10 @@ function MyBot() {
 				
 				case 3 :
 					var quote = classicrockquotes[3];
+					break;
+					
+				case 4 :
+					var quote = classicrockquotes[4];
 					break;
 			}
 			
