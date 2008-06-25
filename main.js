@@ -211,9 +211,10 @@ function MyBot() {
 				var classicrockquotes = new Array();
 				classicrockquotes.push("I don't know, I was really drunk at the time.");
 				classicrockquotes.push("A Short Sharp Shock.");
-				classicrockquotes.push("There's a lady who's sure all that glitters is gold, and she's buying a Stairway to Heaven");
+				classicrockquotes.push("There's a lady who's sure all that glitters is gold, and she's buying a Stairway to Heaven.");
+				classicrockquotes.push("They stab it with their steely knifes, but they just can't kill the beast!");
 				};
-			var quotechoice = Math.floor(Math.random()*3);
+			var quotechoice = Math.floor(Math.random()*4);
 			
 			switch(quotechoice) {
 			
@@ -227,6 +228,10 @@ function MyBot() {
 				
 				case 2 :
 					var quote = classicrockquotes[2];
+					break;
+				
+				case 3 :
+					var quote = classicrockquotes[3];
 					break;
 			}
 			
