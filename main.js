@@ -219,8 +219,10 @@ function MyBot() {
 				// Hotel California - Eagles - Hotel California
 				classicrockquotes.push("They stab it with their steely knifes, but they just can't kill the beast!");
 				classicrockquotes.push("You can check out anytime you like, but you can never leave!");
+				// American Woman - Guess Who - American Woman
+				classicrockquotes.push("American woman, stay away from me, American woman, mama let me be! Don’t come hangin’ around my door, I don’t wanna see your face no more!");
 			};
-			var quotechoice = Math.floor(Math.random()*5);
+			var quotechoice = Math.floor(Math.random()*7);
 			
 			switch(quotechoice) {
 			
@@ -243,6 +245,27 @@ function MyBot() {
 				case 4 :
 					var quote = classicrockquotes[4];
 					break;
+				
+				case 5 :
+					var quote = classicrockquotes[5];
+					break;
+				
+				case 6 :
+					var quote = classicrockquotes[6];
+					break;
+				/**
+				case 7 :
+					var quote = classicrockquotes[7];
+					break;
+				
+				case 8 :
+					var quote = classicrockquotes[8];
+					break;
+				
+				case 9 :
+					var quote = classicrockquotes[9];
+					break;
+				*/	
 			}
 			
 			bot.sendMessage(channel, sender + ": '" + quote + "'");
