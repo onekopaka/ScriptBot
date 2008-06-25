@@ -377,8 +377,7 @@ bot.setCommands({
 	},
 
 	slap: function(bot, channel, sender, message) {
-		bot.sendMessage(channel, "Surprise!");
-		bot.sendAction(channel, "slaps " + sender + " upside the head.");
+		bot.sendAction(channel, "slaps " + message + " upside the head.");
 	},
 	say: function(bot, channel, sender, message) {
 		var msg = message.split("\\s+to\\s+");
