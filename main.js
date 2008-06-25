@@ -209,9 +209,13 @@ function MyBot() {
 			//Check if we have the quotes already loaded, if not, load 'em up! Rawhide!!!
 			if(classicrockquotes == undefined) {
 				var classicrockquotes = new Array();
+				// Money - Pink Floyd - Dark Side of the Moon
 				classicrockquotes.push("I don't know, I was really drunk at the time.");
+				// Us and Them - Pink Floyd - Dark Side of the Moon
 				classicrockquotes.push("A Short Sharp Shock.");
+				// Stairway to Heaven - Led Zepplin - Led Zepplin IV
 				classicrockquotes.push("There's a lady who's sure all that glitters is gold, and she's buying a Stairway to Heaven.");
+				// Hotel California - Eagles - Hotel California
 				classicrockquotes.push("They stab it with their steely knifes, but they just can't kill the beast!");
 				classicrockquotes.push("You can check out anytime you like, but you can never leave!");
 			};
