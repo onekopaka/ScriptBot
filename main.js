@@ -211,8 +211,9 @@ function MyBot() {
 				var classicrockquotes = new Array();
 				// Money - Pink Floyd - Dark Side of the Moon
 				classicrockquotes.push("I don't know, I was really drunk at the time.");
+				classicrockquotes.push("Money, it's a hit. But don't give me that do goody good bullshit.");
 				// Us and Them - Pink Floyd - Dark Side of the Moon
-				classicrockquotes.push("A Short Sharp Shock.");
+				classicrockquotes.push("You know they're gonna kill ya. So, like... if you give 'em a quick short, sharp shock, they don't do it again. Dig it? I mean he got off lightly, 'cos I could've given him a thrashing - I only hit him once! It was only a difference of right and wrong in it... I mean good manners don't cost nothing do they? 'Ey!");
 				// Stairway to Heaven - Led Zepplin - Led Zepplin IV
 				classicrockquotes.push("There's a lady who's sure all that glitters is gold, and she's buying a Stairway to Heaven.");
 				// Hotel California - Eagles - Hotel California
