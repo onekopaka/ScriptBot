@@ -71,7 +71,7 @@ function MyBot() {
 			} catch(e) {
 				// This is only if the channel contains strange characters.
 				print("Joining '" + message + "' failed. Maybe '" + message + "' isn't a real channel.");
-				bot.sendMessage(channel, "I couldn't join the channel '" + message + "'. Are you sure it is a real channel?");
+				bot.sendMessage(channel, sender + ": I couldn't join the channel '" + message + "'. Are you sure it is a real channel?");
 			}
 		},
 
@@ -93,10 +93,10 @@ function MyBot() {
 				var list = channels.slice(0, -1).join(", ");
 				list = list + ', and ' + channels[channels.length - 1];
 				// Send out the list.
-				bot.sendMessage(channel, "I am currenly a member of " + list + ".");
+				bot.sendMessage(channel, sender + ": I am currenly a member of " + list + ".");
 			} else {
 				// Send out the list.
-				bot.sendMessage(channel, "I am only a member of " + channels[0] + ".");
+				bot.sendMessage(channel, sender + ": I am only a member of " + channels[0] + ".");
 			}
 		},
 
@@ -126,7 +126,7 @@ function MyBot() {
 
 							// If there is no result, don't bother printing anything.
 							if(msg !== undefined) {
-								bot.sendMessage(channel, msg);
+								bot.sendMessage(channel, sender + ": " + msg);
 							}
 						} catch(e) {
 							// Print error on channel and console.
@@ -134,7 +134,7 @@ function MyBot() {
 							bot.sendMessage(channel, e);
 						}
 					} else {
-						bot.sendMessage(channel, "I'm sorry, I cannot evaluate that command.");
+						bot.sendMessage(channel, sender + ": I'm sorry, I cannot evaluate that command.");
 					}
 					list.remove(thread);
 				}
@@ -171,12 +171,12 @@ function MyBot() {
 				if(plugins[message] !== undefined) {
 					delete plugins[message];
 					delete pluginsHelp[message];
-					bot.sendMessage(channel,"Plugin '"+message+"' unloaded successfully.");
+					bot.sendMessage(channel, sender + ": Plugin '"+message+"' unloaded successfully.");
 				} else {
-					bot.sendMessage(channel, "I do not have any loaded plugins with that name.");
+					bot.sendMessage(channel, sender + ": I do not have any loaded plugins with that name.");
 				}
 			} else {
-				bot.sendMessage(channel, "I currently have no plugins to unload.");
+				bot.sendMessage(channel, sender + ": I currently have no plugins to unload.");
 			}
 		},
 
@@ -200,8 +200,8 @@ function MyBot() {
 				plgnStr = "I currently have no plugins loaded.";
 			}
 
-			bot.sendMessage(channel, cmdStr);
-			bot.sendMessage(channel, plgnStr);
+			bot.sendMessage(channel, sender + ": " +cmdStr);
+			bot.sendMessage(channel, sender + ": " + plgnStr);
 		},
 
 		help: function(bot, channel, sender, message) {
@@ -223,7 +223,7 @@ function MyBot() {
 			if(help !== undefined) {
 				bot.sendMessage(channel, help.toString());
 			} else {
-				bot.sendMessage(channel, "I'm sorry, I didn't find any help on that topic.");
+				bot.sendMessage(channel, sender + ": I'm sorry, I didn't find any help on that topic.");
 			}
 		}
 	};
@@ -297,7 +297,7 @@ function MyBot() {
 				print(err + " '" + token + "': " + e);
 			}
 		} else {
-			this.sendMessage(channel, "I'm sorry, I don't recognize that command.");
+			this.sendMessage(channel, sender + ": I'm sorry, I don't recognize that command.");
 		}
 	};
 
@@ -336,7 +336,7 @@ try {
  * without changing the source above. Neat!
  */
 
-function rps(bot, channel, message) {
+function rps(bot, channel, message, sender) {
 	var choice = Math.floor(Math.random()*3);
 	message = message.valueOf();
 	var win = true;
@@ -358,18 +358,18 @@ function rps(bot, channel, message) {
 				win = false;
 	}
 	if(message == hand) {
-		bot.sendMessage(channel, hand + ". We tied.");
+		bot.sendMessage(channel, sender + ": " + hand + ". We tied.");
 	} else if(win) {
-		bot.sendMessage(channel, hand + ". Ha, ha! I win. =-)");
+		bot.sendMessage(channel, sender + ": " + hand + ". Ha, ha! I win. =-)");
 	} else {
-		bot.sendMessage(channel, hand + ". Oh no! I lose. =-(");
+		bot.sendMessage(channel, sender + ": " + hand + ". Oh no! I lose. =-(");
 	}
 }
 
 // Add our own user-defined commands. :)
 bot.setCommands({
 	time: function(bot, channel, sender, message) {
-		bot.sendMessage(channel, new Date());
+		bot.sendMessage(channel, sender + ": " + new Date());
 	},
 
 	echo: function(bot, channel, sender, message) {
@@ -389,16 +389,16 @@ bot.setCommands({
 		}
 	},
 	die: function(bot, channel, sender, message) {
-		bot.sendMessage(channel, "You wish!");
+		bot.sendMessage(channel, sender + ": You wish!");
 	},
 	rock: function(bot, channel, sender, message) {
-		rps(bot, channel, "rock");
+		rps(bot, channel, "rock", sender);
 	},
 	paper: function(bot, channel, sender, message) {
-		rps(bot, channel, "paper");
+		rps(bot, channel, "paper", sender);
 	},
 	scissors: function(bot, channel, sender, message) {
-		rps(bot, channel, "scissors");
+		rps(bot, channel, "scissors", sender);
 	}
 });
 // Add our help entries.
