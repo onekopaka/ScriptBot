@@ -71,7 +71,7 @@ function MyBot() {
 			} catch(e) {
 				// This is only if the channel contains strange characters.
 				print("Joining '" + message + "' failed. Maybe '" + message + "' isn't a real channel.");
-				bot.sendMessage(channel, sender + ": I couldn't join the channel '" + message + "'. Are you sure it is a real channel?");
+				bot.sendMessage(channel, sender + ": WTF? I couldn't join the channel '" + message + "'. Are you sure it is a real channel?");
 			}
 		},
 
@@ -134,7 +134,7 @@ function MyBot() {
 							bot.sendMessage(channel, e);
 						}
 					} else {
-						bot.sendMessage(channel, sender + ": I'm sorry, I cannot evaluate that command.");
+						bot.sendMessage(channel, sender + ": WTF are you trying? You're not allowed to do that!");
 					}
 					list.remove(thread);
 				}
@@ -144,7 +144,7 @@ function MyBot() {
 		},
 
 		kill: function(bot, channel, sender, message) {
-			// fails.
+			// fails. miserably.
 			if(message.equals("all")) {
 				for(var i = 0; i < list.size(); i++) {
 					list.get(i).interrupt();
@@ -222,51 +222,7 @@ function MyBot() {
 				// American Woman - Guess Who - American Woman
 				classicrockquotes.push("American woman, stay away from me, American woman, mama let me be! Don’t come hangin’ around my door, I don’t wanna see your face no more!");
 			};
-			var quotechoice = Math.floor(Math.random()*7);
-			
-			switch(quotechoice) {
-			
-				case 0 :
-					var quote = classicrockquotes[0];
-					break;
-				
-				case 1 :
-					var quote = classicrockquotes[1];
-					break;
-				
-				case 2 :
-					var quote = classicrockquotes[2];
-					break;
-				
-				case 3 :
-					var quote = classicrockquotes[3];
-					break;
-					
-				case 4 :
-					var quote = classicrockquotes[4];
-					break;
-				
-				case 5 :
-					var quote = classicrockquotes[5];
-					break;
-				
-				case 6 :
-					var quote = classicrockquotes[6];
-					break;
-				/**
-				case 7 :
-					var quote = classicrockquotes[7];
-					break;
-				
-				case 8 :
-					var quote = classicrockquotes[8];
-					break;
-				
-				case 9 :
-					var quote = classicrockquotes[9];
-					break;
-				*/	
-			}
+			var quote = classicrockquotes[Math.floor(Math.random()*7)];
 			
 			bot.sendMessage(channel, sender + ": '" + quote + "'");
 		},
