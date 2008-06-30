@@ -162,6 +162,7 @@ function MyBot() {
 			bot.sendMessage(channel, sender + ": " + reportxhr.responseText);*/
 			/* Java & JavaScript blend, too much java.*/
 			var metarreport = new URL("http://weather.noaa.gov/pub/data/observations/metar/stations/" + message + ".txt");
+			var metarrreporconnection = metarreport.openConnection();
 			bot.sendMessage(channel, sender + ": " + metarreport);
 		},
 		unload: function(bot, channel, sender, message) {
