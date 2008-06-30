@@ -219,10 +219,8 @@ function MyBot() {
 				// Hotel California - Eagles - Hotel California
 				classicrockquotes.push("They stab it with their steely knifes, but they just can't kill the beast!");
 				classicrockquotes.push("You can check out anytime you like, but you can never leave!");
-				// American Woman - Guess Who - American Woman
-				classicrockquotes.push("American woman, stay away from me, American woman, mama let me be! Don’t come hangin’ around my door, I don’t wanna see your face no more!");
 			};
-			var quote = classicrockquotes[Math.floor(Math.random()*7)];
+			var quote = classicrockquotes[Math.floor(Math.random()*classicrockquotes.length)];
 			
 			bot.sendMessage(channel, sender + ": '" + quote + "'");
 		},
@@ -244,7 +242,7 @@ function MyBot() {
 
 			// If there was an entry, display it. Otherwise tell them we didn't find anything.
 			if(help !== undefined) {
-				bot.sendMessage(channel, help.toString());
+				bot.sendMessage(channel, sender + ": " + help.toString());
 			} else {
 				bot.sendMessage(channel, sender + ": I'm sorry, I didn't find any help on that topic.");
 			}
@@ -260,7 +258,7 @@ function MyBot() {
 		eval: "'eval <code>' evaluates <code> and returns the result. Use 'print(value)' to return intermediate results.",
 		kill: "If passed the argument 'all', kill will terminate any still running evaluations.",
 		unload: "'unload <name>' unloads a plugin called <name>. To prevent any more security holes than there already are, there is no 'load' command.",
-		commands: "'commands'lists all currently recognized commands and plugins.",
+		commands: "'commands' lists all currently recognized commands and plugins.",
 		help: "'help <name>' lists the help entry for <name>, if any. For a list of commands, 'commands' does the trick.",
 		load: "Currently, there is no load function. Expect this once we are able to import external JavaScript files.",
 		weather: "Weather is the first thing to be implemented. We're working on it.",
