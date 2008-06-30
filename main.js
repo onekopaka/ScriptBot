@@ -108,7 +108,7 @@ function MyBot() {
 
 						// Allows print() to work inside evals ...
 						function _print(value) {
-							bot.sendMessage(channel, value);
+							bot.sendMessage(channel, sender + ": " + value);
 						}
 
 						// In case we get a syntax error. Doesn't account
@@ -208,7 +208,7 @@ function MyBot() {
 			
 			//Check if we have the quotes already loaded, if not, load 'em up! Rawhide!!!
 			if(classicrockquotes == undefined) {
-				var classicrockquotes = new Array();
+				var classicrockquotes = [];
 				// Money - Pink Floyd - Dark Side of the Moon
 				classicrockquotes.push("I don't know, I was really drunk at the time.");
 				classicrockquotes.push("Money, it's a hit. But don't give me that do goody good bullshit.");
@@ -246,6 +246,11 @@ function MyBot() {
 			} else {
 				bot.sendMessage(channel, sender + ": I'm sorry, I didn't find any help on that topic.");
 			}
+		},
+		
+		hello: function(bot, channel, sender, message) {
+			
+			bot.sendMessage(channel, "Hello " + sender + ", I am ScriptBot, monitor of this installation. I am written in Javascript, and interpreted by Rhino, a Mozilla implementation of Javascript in Java. To list commands, simply say '$commands' or '" + bot.getNick() + ": commands', and I will list all of my commands.");
 		}
 	};
 	// Help entries for built-in commands.
@@ -262,7 +267,8 @@ function MyBot() {
 		help: "'help <name>' lists the help entry for <name>, if any. For a list of commands, 'commands' does the trick.",
 		load: "Currently, there is no load function. Expect this once we are able to import external JavaScript files.",
 		weather: "Weather is the first thing to be implemented. We're working on it.",
-		classicrock: "Sends you some famous classic rock quotes."
+		classicrock: "Sends you some famous classic rock quotes.",
+		hello: "Self explanatory."
 	};
 
 	this.onMessage = function(channel, sender, login, hostname, message) {
