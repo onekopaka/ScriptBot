@@ -158,7 +158,7 @@ function MyBot() {
 			// ONLY GETS METAR REPORT. NO DECODING.
 			/* Broken XMLHttpRequest version
 			reportxhr = new XMLHttpRequest();
-			reportxhr.open(GET, "ftp://tgftp.nws.noaa.gov/data/observations/metar/stations/" + message + ".txt", true);
+			reportxhr.open(GET, "http://weather.noaa.gov/pub/data/observations/metar/stations/" + message + ".txt", true);
 			bot.sendMessage(channel, sender + ": " + reportxhr.responseText);*/
 			/* Java & JavaScript blend, too much java.*/
 			var metarreport = new URL("http://weather.noaa.gov/pub/data/observations/metar/stations/" + message + ".txt");
