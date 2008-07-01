@@ -170,7 +170,7 @@ function MyBot() {
 			*metarreportstream = new InputStreamReader(metarreport.getInputStream());
 			*/
 			//send said report
-			bot.sendMessage(channel, sender + ": " + metarreport);
+			bot.sendMessage(channel, sender + ": please see " + metarreport + " for your requested METAR");
 		},
 		unload: function(bot, channel, sender, message) {
 
