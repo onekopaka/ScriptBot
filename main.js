@@ -162,7 +162,14 @@ function MyBot() {
 			bot.sendMessage(channel, sender + ": " + reportxhr.responseText);*/
 			/* Java & JavaScript blend, too much java.*/
 			var metarreport = new URL("http://weather.noaa.gov/pub/data/observations/metar/stations/" + message + ".txt");
-			var metarrreporconnection = metarreport.openConnection();
+			/**
+			*100% broken!
+			* //Just here.
+			*var metarrreporconnection = metarreport.openConnection();
+			* //actually get the report
+			*metarreportstream = new InputStreamReader(metarreport.getInputStream());
+			*/
+			//send said report
 			bot.sendMessage(channel, sender + ": " + metarreport);
 		},
 		unload: function(bot, channel, sender, message) {
@@ -251,7 +258,7 @@ function MyBot() {
 		
 		hello: function(bot, channel, sender, message) {
 			
-			bot.sendMessage(channel, "Hello " + sender + ", I am ScriptBot, monitor of this installation. I am written in Javascript, and interpreted by Rhino, a Mozilla implementation of Javascript in Java. To list commands, simply say '$commands' or '" + bot.getNick() + ": commands', and I will list all of my commands.");
+			bot.sendMessage(channel, "Hello " + sender + ", I am " + bot.getNick() + ", monitor of this installation. I am written in Javascript, and interpreted by Rhino, a Mozilla implementation of Javascript in Java. To list commands, simply say '$commands' or '" + bot.getNick() + ": commands', and I will list all of my commands.");
 		}
 	};
 	// Help entries for built-in commands.
