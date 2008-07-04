@@ -1,3 +1,10 @@
+/************************************************
+* A simple rock-paper-scissors plugin. It       *
+* responds to rock, paper, and scissors. A      *
+* random choice is made for the bot, and the    *
+* result is reported to the channel (win loss). *
+************************************************/
+
 // Lets users play rock-paper-scissors with the bot.
 core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var user = args[args.length-1].toLowerCase();
