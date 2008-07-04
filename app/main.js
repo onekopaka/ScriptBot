@@ -8,8 +8,8 @@ var core = createBot();
 
 // Connecting to the server sometimes fails.
 try {
-	core.initialize("ScriptBot", "irc.freenode.net", "#pircbot");
-	//core.initialize("ScriptBot", "irc.mozilla.org", "#bots");
+	//core.initialize("ScriptBot", "irc.freenode.net", "#pircbot");
+	core.initialize("ScriptBot", "irc.mozilla.org", "#bots");
 } catch(e) {
 	print(e);
 	print("Program terminated.");
