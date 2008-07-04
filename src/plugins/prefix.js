@@ -1,3 +1,9 @@
+/************************************************
+* A simple plugin to allow changing the prefix  *
+* the bot responds to in the channel. This does *
+* not affect unrestricted plugins.              *
+************************************************/
+
 // Allows users to change the prefix in channel. Mainly just because or testing.
 core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var msg = args[args.length-1].split(/\s+/g);
