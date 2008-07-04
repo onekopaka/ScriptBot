@@ -1,3 +1,12 @@
+/************************************************
+* A simple time plugin. It responds to "time"   *
+* and returns the current time of the machine   *
+* on which the bot is being run. Alternatively, *
+* a place can be specified, and the bot will    *
+* ask Google for the current time in the        *
+* location and return it.                       *
+************************************************/
+
 // Remove any other "time" plugins.
 core.unregisterPluginByEvent(Event.MESSAGE, "time");
 // Reads off the current time somewhere.
