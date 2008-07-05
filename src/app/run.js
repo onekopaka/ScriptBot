@@ -6,9 +6,29 @@ importClass(java.lang.System);
  * @namespace
  */
 var IO = {
+	/**
+	 * The path separator used by the system.
+	 * @type string
+	 */
 	separator: System.getProperty("path.separator") || ":",
+
+	/**
+	 * Forward or backward slash depending on which OS the bot is being run.
+	 * @type string
+	 */
 	slash: System.getProperty("file.separator") || "/",
+
+	/**
+	 * The path to the folder where the shell or bat file to start the bot was run.
+	 * @type string
+	 */
 	path: System.getProperty("user.dir") || "./",
+
+	/**
+	 * Includes the given script file into the current runtime. An optional parameter describes whether the path is relative or absolute.
+	 * @param {string} path The path to the file.
+	 * @param {string} [relative] <code>true</code> if the path is relative to {@link #path}, <code>false</code> if the path is absolute.
+	 */
 	include: function(path, relative) {
 		if(relative || (relative === undefined)) {
 			load(this.path + path);

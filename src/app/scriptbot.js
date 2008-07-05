@@ -200,6 +200,9 @@ function ScriptBotCore() {
 	};
 
 	// Disconnect from the server and close the program.
+	/**
+	 * Causes this bot instance to disconnect from the server immediately.
+	 */
 	this.exit = function() {
 		log("Shutting down.");
 
@@ -211,6 +214,7 @@ function ScriptBotCore() {
 	/**
 	 * A map of all currently registered unrestricted plugins.
 	 *
+	 * @private
 	 * @type Object
 	 */
 	var unrestrictedHandlers = {};
@@ -218,6 +222,7 @@ function ScriptBotCore() {
 	/**
 	 * A map of all currently registered restricted plugins.
 	 *
+	 * @private
 	 * @type Object
 	 */
 	var restrictedHandlers = {};
@@ -225,6 +230,7 @@ function ScriptBotCore() {
 	/**
 	 * A map of all currently registered restricted plugins.
 	 *
+	 * @private
 	 * @type Object
 	 */
 	var informationHandlers = {};
@@ -696,9 +702,9 @@ function ScriptBotCore() {
 	this.onPart = function(channel, sender, login, hostname) {
 		this.fireEvent(Event.PART, [channel+"", sender+"", login+"", hostname+""]);
 	}
-	this.onPart = function(channel, sender, login, hostname, message) {
+/*	this.onPart = function(channel, sender, login, hostname, message) {
 		this.fireEvent(Event.PART, [channel+"", sender+"", login+"", hostname+"", message+""]);
-	}
+	}*/
 	this.onPing = function(sourceNick, sourceLogin, sourceHostname, target, pingValue) {
 		//super.onPing = function(sourceNick, sourceLogin, sourceHostname, target, pingValue); // Doesn't work.
 		this.fireEvent(Event.PING, [sourceNick+"", sourceLogin+"", sourceHostname+"", target+"", pingValue+""]);
@@ -922,50 +928,95 @@ function ScriptBotCoreAdapter(robot) {
  * @namespace
  */
 var Event = {
+	/** Fired on action events. */
 	ACTION: "ACTION",
+	/** Fired on connection events. */
 	CONNECT: "CONNECT",
+	/** Fired when someone is deoped. */
 	DEOP: "DEOP",
+	/** Fired when someone is devoiced. */
 	DE_VOICE: "DE_VOICE",
+	/** Fired when the bot is disconnected. */
 	DISCONNECT: "DISCONNECT",
+	/** Fired when someone sends a CTCP FINGER to the bot. */
 	FINGER: "FINGER",
+	/** Fired when the bot is invited to a channel. */
 	INVITE: "INVITE",
+	/** Fired when someone joins a channel. */
 	JOIN: "JOIN",
+	/** Fired when someone is kicked. */
 	KICK: "KICK",
+	/** Fired when someone says something on a channel. */
 	MESSAGE: "MESSAGE",
+	/** Fired when a channel mode is changed. */
 	MODE: "MODE",
+	/** Fired when someone changes their nick. */
 	NICK_CHANGE: "NICK_CHANGE",
+	/** Fired when someone sends a notice to the bot. */
 	NOTICE: "NOTICE",
+	/** Fired when someone is opped. */
 	OP: "OP",
+	/** Fired when someone parts a channel. */
 	PART: "PART",
+	/** Fired when someone pings the bot. */
 	PING: "PING",
+	/** Fired when someone sends a private message to the bot. */
 	PRIVATE_MESSAGE: "PRIVATE_MESSAGE",
+	/** Fired when someone disconnects from the server. */
 	QUIT: "QUIT",
+	/** Fired when a channel ban is removed. */
 	CHANNEL_BAN_REMOVED: "CHANNEL_BAN_REMOVED",
+	/** Fired when a channel key is removed. */
 	CHANNEL_KEY_REMOVED: "CHANNEL_KEY_REMOVED",
+	/** Fired when channel information is received. */
 	CHANNEL_INFO: "CHANNEL_INFO",
+	/** Fired when a channel limit is removed. */
 	CHANNEL_LIMIT_REMOVED: "CHANNEL_LIMIT_REMOVED",
+	/** Fired when a channel is made invitation only. */
 	INVITE_ONLY_REMOVED: "INVITE_ONLY_REMOVED",
+	/** Fired when a channel removes moderation mode. */
 	MODERATED_REMOVED: "MODERATED_REMOVED",
+	/** Fired when a channel removes no-external-messages mode. */
 	NO_EXTERNAL_MESSAGES_REMOVED: "NO_EXTERNAL_MESSAGES_REMOVED",
+	/** Fired when a channel is no longer private. */
 	PRIVATE_REMOVED: "PRIVATE_REMOVED",
+	/** Fired when a channel is no longer secret. */
 	SECRET_REMOVED: "SECRET_REMOVED",
+	/** Fired when a channel removes topic protection. */
 	TOPIC_PROTECTION_REMOVED: "TOPIC_PROTECTION_REMOVED",
+	/** Fired when the bot receives a server response line. */
 	SERVER_RESPONSE: "SERVER_RESPONSE",
+	/** Fired when a channel bans someone. */
 	SET_CHANNEL_BAN: "SET_CHANNEL_BAN",
+	/** Fired when a channel sets a channel key. */
 	SET_CHANNEL_KEY: "SET_CHANNEL_KEY",
+	/** Fired when a channel limit is set. */
 	SET_CHANNEL_LIMIT: "SET_CHANNEL_LIMIT",
+	/** Fired when a channel is made invitation only. */
 	SET_INVITE_ONLY: "SET_INVITE_ONLY",
+	/** Fired when a channel is made moderater only. */
 	SET_MODERATED: "SET_MODERATED",
+	/** Fired when a channel no longer accepts external messages. */
 	SET_NO_EXTERNAL_MESSAGES: "SET_NO_EXTERNAL_MESSAGES",
+	/** Fired when a channel is made private. */
 	SET_PRIVATE: "SET_PRIVATE",
+	/** Fired when a channel is made secret. */
 	SET_SECRET: "SET_SECRET",
+	/** Fired when a channel sets topic protection. */
 	SET_TOPIC_PROTECTION: "SET_TOPIC_PROTECTION",
+	/** Fired when the bot receives a CTCP TIME command. */
 	TIME: "TIME",
+	/** Fired when the bot receives a channels topic. */
 	TOPIC: "TOPIC",
+	/** Fired when an unknown line is received. */
 	UNKNOWN: "UNKNOWN",
+	/** Fired when the bot receives a channel's user-list. */
 	USER_LIST: "USER_LIST",
+	/** Fired when a user mode is set. */
 	USER_MODE: "USER_MODE",
+	/** Fired when the bot receives a CTCP TIME commmand. */
 	VERSION: "VERSION",
+	/** Fired when someone is given voice. */
 	VOICE: "VOICE"
 }
 
