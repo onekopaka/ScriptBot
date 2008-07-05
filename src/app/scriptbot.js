@@ -12,7 +12,7 @@
  * should receive a JS object (not a Java object), even if it requires taking extra
  * steps to convert.
  *
- * @version 0.1.1
+ * @version 0.2.1
  * @author AMcBain, 2008
  * @constructor
  */
@@ -78,6 +78,7 @@ function ScriptBotCore() {
 	 * <br><br>
 	 * For enabling or disabling PircBot based logging see {@link #setVerbose}.
 	 *
+	 * @since 0.2.1
 	 * @see #setVerbose
 	 * @param {boolean} value Whether or not to enable PircBot's logging.
 	 */
@@ -109,7 +110,7 @@ function ScriptBotCore() {
 	/**
 	 * Logs the given message to the console, optionally displaying the source of the message.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.1
 	 * @param {string} msg The message to be logged.
 	 * @param {string} [source] Optionally, the source of the item logging this message.
 	 * @param {boolean} [extraLine] Optionally print an extra new line after this log message.
@@ -157,7 +158,7 @@ function ScriptBotCore() {
 	 * Connects the bot with the specified name to the specified IRC server, and joins a
 	 * default channel, if given. A password may also be supplied for registered nicks.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.1
 	 * @param {string} nick The nick used when the bot attempts to join IRC.
 	 * @param {string} ircServer The server to which this bot will attempt to connect.
 	 * @param {string} ircChannel The default channel to join after this bot successfully connects to IRC.
@@ -229,11 +230,28 @@ function ScriptBotCore() {
 	var informationHandlers = {};
 
 	/**
+	 * Returns a list of all the names of the registered information handlers. This
+	 * can be used as a general guide to the plugins installed in this bot. However,
+	 * it is possible certain plugins did not register an information handler, in
+	 * which case they cannot be returned by this function.
+	 *
+	 * @since 0.2.1
+	 * @see #registerPluginInfo
+	 * @returns A list of registered plugin information handlers' names.
+	 * @type Array
+	 */
+	this.getPluginInformation = function() {
+		var info = [];
+		for(var i in informationHandlers) info.push(i);
+		return (info);
+	};
+
+	/**
 	 * Registers a restricted plugin for the speicifed event. Restricted plugins
 	 * do not recieve the whole IRC line sent for some events, and may only be
 	 * called if the the IRC line was intended for the bot.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.1
 	 * @see #unregisterPlugin
 	 * @see #registerUrestrictedPlugin
 	 * @see #registerPluginInfo
@@ -256,7 +274,7 @@ function ScriptBotCore() {
 	 * called if the the IRC line was intended for the bot. Unrestricted plugins
 	 * are called every time this event is fired and are sent the whole line.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.1
 	 * @see #unregisterPlugin
 	 * @see #registerPlugin
 	 * @see #registerPluginInfo
@@ -277,7 +295,7 @@ function ScriptBotCore() {
 	 * Registers a restricted plugin which is called if/when no other plugins handle
 	 * the specified event. Only one plugin of this type can be registered per event.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.1
 	 * @see #unregisterUnhandledEventPlugin
 	 * @param {string} event The name of the event for which this handler is being registered.
 	 * @param {Function} handler The function to be called when this event is fired.
@@ -293,7 +311,7 @@ function ScriptBotCore() {
 	 * Registers a handler to be called when a user asks for information on a plugin or
 	 * command to which a plugin may respond. Commands are case-sensitive.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.1
 	 * @see #registerPlugin
 	 * @see #registerUrestrictedPlugin
 	 * @param {string} plugin The name of the plugin for which this handler is being registered.
@@ -315,7 +333,7 @@ function ScriptBotCore() {
 	 * of information entries assotiated with this plugin, however this is ignored if an id is
 	 * provided for the first argument. This entire process can be costly.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.1
 	 * @see #unregisterPluginByEvent
 	 * @param {string/Function} plugin The handler or id of the plugin being removed.
 	 * @param {string/Array} [info] An optional string or array specifying which information entries to also remove.
@@ -401,7 +419,7 @@ function ScriptBotCore() {
 	 * or they do not match an valid registered entries. This is less costly than
 	 * {@link #unregisterPlugin}.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.1
 	 * @see #unregisterPlugin
 	 * @param {string} plugin The name or id of the plugin being removed.
 	 * @param {string/Function} id An function or id by which to determine what to remove.
@@ -444,7 +462,7 @@ function ScriptBotCore() {
 	/**
 	 * Removes the unhandled-event listener called for the specified event.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.1
 	 * @see #registerUnhandledEventPlugin
 	 * @param {string} event The name of the event for which this handler is being removed.
 	 */
@@ -458,7 +476,7 @@ function ScriptBotCore() {
 	/**
 	 * Unregisters a help entry so that it is no longer called.
 	 *
-	 * @since 0.1.1
+	 * @since 0.2.1
 	 * @see #unregisterPluginByEvent
 	 * @param {string} plugin The name or id of the plugin information being removed.
 	 * @param {boolean} id Is the first parameter an id?
@@ -469,7 +487,7 @@ function ScriptBotCore() {
 		if(Util.isUndefined(plugin)) return;
 
 		// Handle ids.
-		if(id) {
+		if(Util.isTrue(id)) {
 			var keep = [];
 
 			// Remove all help entries with the specifiec id.
@@ -492,6 +510,7 @@ function ScriptBotCore() {
 	/**
 	 * Fires the given event (type) with the following arguments (in an array).
 	 *
+	 * @since 0.2.1
 	 * @param {string} type The name of the event.
 	 * @param {Array} args The array parameters.
 	 */
@@ -554,6 +573,7 @@ function ScriptBotCore() {
 	/**
 	 * An internal function to specially handle onMessage events.
 	 *
+	 * @since 0.2.1
 	 * @param {string} type The name of the event.
 	 * @param {Array} args The array parameters.
 	 * @param {boolean} priv Whether this is a private message or not.
