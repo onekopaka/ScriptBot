@@ -1,4 +1,4 @@
-In order to be compatible, ScriptBot Trunk is licensed under the GPL v2. 
+﻿In order to be compatible, ScriptBot Trunk is licensed under the GPL v2. 
 
 You can see the GPL version 2 as a plain-text file at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
 
@@ -24,3 +24,13 @@ Pour un langage différent, voir le http://www.gnu.org/licenses/old-licenses/gpl
 
 Für eine andere Sprache sehen Sie http://www.gnu.org/licenses/old-licenses/gpl-2.0-translations.html
 
+
+
+
+License Exception:
+
+	Plugins included with the main ScriptBot-src (inside the plugin directory) are subject to the above
+license. This license agreement DOES NOT apply to plugins inside the "xplugins" directory, plugins downloaded
+from the ScriptBot website, or ScriptBot plugin-gallery. Users of such plugins are bound by the terms of
+the license set by the author(s) of said plugins. The authors of ScriptBot are not responsible for the content
+of said plugins, nor for anything which happens as a result of using such plugins.
