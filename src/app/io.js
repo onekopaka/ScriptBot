@@ -295,7 +295,7 @@ IO.writeObject = function(name, object, depth, level, tabin) {
 			}
 
 			// Handle Arrays
-			if(object[i] instanceof Array) {
+			if(level !== depth && object[i] instanceof Array) {
 				doArray(object[i]);
 				handled = true;
 			}
