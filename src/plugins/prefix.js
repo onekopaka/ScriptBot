@@ -8,11 +8,11 @@
 core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var msg = args[args.length-1].split(/\s+/g);
 	if(msg[0] === "prefix" && msg.length === 1) {
-		bot.sendMessage(args[0], "I can be addressed using '" + bot.prefix + "'");
+		bot.sendMessage(args[0], "I can be addressed using '" + bot.prefix + "', " + args[1]);
 		return true;
 	} else if(msg[0] === "prefix" && msg.length > 1) {
 		bot.prefix = msg[1];
-		bot.sendMessage(args[0], "I will now respond to '" + bot.prefix + "'");
+		bot.sendMessage(args[0], "I will now respond to '" + bot.prefix + "', " + args[1]);
 		return true;
 	}
 });
