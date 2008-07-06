@@ -6,6 +6,13 @@ importClass(java.lang.System);
  * @namespace
  */
 var IO = {
+
+	/**
+	 * The line separator used by the system.
+	 * @string
+	 */
+	lineBreak: System.getProperty("line.separator") || "\n",
+
 	/**
 	 * The path separator used by the system.
 	 * @type string
