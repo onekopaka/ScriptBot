@@ -607,7 +607,7 @@ function ScriptBotCore() {
 				if(args[args.length-1].indexOf(prefix) === 0) {
 
 					// Remove prefix.
-					args[args.length-1] = args[args.length-1].replace(new RegExp("^" + prefix), "");
+					args[args.length-1] = args[args.length-1].replace(new RegExp("^\\" + prefix), "");
 
 					// Catch help/info commands.
 					if(args[args.length-1].match(/^help\s*/) || args[args.length-1].match(/^info\s*/)) {
