@@ -156,10 +156,9 @@ IO.tab = "   ";
  * @param {object} object The object to be saved.
  * @param {number} [depth] The recursive depth at which to stop writing out properites; Default is 10.
  * @param {number} [level] Used only by the algorithm itself.
- * @param {string} [tabin] Used only by the algorithm itself
- * @param {string} [inner] Used only by the algorithm itself.
+ * @param {string} [tabin] Used only by the algorithm itself.
  */
-IO.writeObject = function(name, object, depth, level, tabin, inner) {
+IO.writeObject = function(name, object, depth, level, tabin) {
 	var output = "";
 	var first = false;
 	var tabin = tabin;
@@ -311,7 +310,15 @@ IO.writeObject = function(name, object, depth, level, tabin, inner) {
 			if(!handled && level !== depth && object[i] instanceof Object) {
 				output += IO.writeObject(name, object[i], depth, ++level, tabin + IO.tab);
 			} else if(!handled) {
-				output += object[i] + "," + IO.lineBreak;
+				var value = object[i].toString() + "";
+
+				// Output objects that evaluate as booleans or numbers directly, and quote everything else.
+				if(!isNaN(Number(value)) || value === "true" || value === "false") {
+					output += value;
+				} else {
+					output += "\"" + escapeString(value) + "\"";
+				}
+				output += "," + IO.lineBreak;
 			}
 		}
 	}
