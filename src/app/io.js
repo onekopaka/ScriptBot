@@ -6,29 +6,34 @@
  * @returns A string or an Array containing the contents of the requested URL.
  */
 IO.fetchURL = function(url, asLines) {
-	var link = new java.net.URL(url);
-	var conn = link.openConnection();
-	var reader = new java.io.BufferedReader(new java.io.InputStreamReader(conn.getInputStream()));
-	var input = "";
-
-	var line = "";
-	var lines = [];
-
-	while((input = reader.readLine()) != null) {
-		if(asLines) {
-			lines.push(input+"");
-		} else {
-			line += input + "\n";
-		}
-	}
-
 	try {
-		reader.close();
-	} catch(e) {
-		// Uhh ... what am I supposed to do with it?
-	}
 
-	return ((asLines)? lines : line);
+		var link = new java.net.URL(url);
+		var conn = link.openConnection();
+		var reader = new java.io.BufferedReader(new java.io.InputStreamReader(conn.getInputStream()));
+		var input = "";
+
+		var line = "";
+		var lines = [];
+
+		while((input = reader.readLine()) != null) {
+			if(asLines) {
+				lines.push(input+"");
+			} else {
+				line += input + "\n";
+			}
+		}
+
+		try {
+			reader.close();
+		} catch(e) {
+			// Uhh ... what am I supposed to do with it?
+		}
+
+		return ((asLines)? lines : line);
+	} catch(e) {
+		throw (new Error(e+""));
+	}
 };
 
 /**
@@ -149,7 +154,7 @@ IO.readObject = function(name) {
 IO.tab = "   ";
 
 /**
- * Writes the given object out to a file such that it can be read in via {@link #writeObject}.
+ * Writes the given object out to a file such that it can be read in via {@link #readObject}.
  * Similar to a "pretty printer" which formats an object so as to be easily viewed in the output window.
  *
  * @param {string} name The name of the object to be saved, to be used when read back in.
