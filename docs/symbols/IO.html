@@ -269,6 +269,16 @@ A collection of items related to helping with input/output, as well as loading o
 							<td class="attributes">&lt;static&gt; &nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont">
+								IO.<b><a href="../symbols/IO.html#.lineBreak">lineBreak</a></b>
+								</div>
+								<div class="description">The line separator used by the system.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
 								IO.<b><a href="../symbols/IO.html#.path">path</a></b>
 								</div>
 								<div class="description">The path to the folder where the shell or bat file to start the bot was run.</div>
@@ -292,6 +302,16 @@ A collection of items related to helping with input/output, as well as loading o
 								IO.<b><a href="../symbols/IO.html#.slash">slash</a></b>
 								</div>
 								<div class="description">Forward or backward slash depending on which OS the bot is being run.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								IO.<b><a href="../symbols/IO.html#.tab">tab</a></b>
+								</div>
+								<div class="description">The value of a "tab" in the data written by writeObject.</div>
 							</td>
 						</tr>
 					
@@ -331,6 +351,42 @@ A collection of items related to helping with input/output, as well as loading o
 								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.include">include</a></b>(path, relative)
 								</div>
 								<div class="description">Includes the given script file into the current runtime.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.readFile">readFile</a></b>(path, asLines)
+								</div>
+								<div class="description">Reads in the specified file.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.readObject">readObject</a></b>(name)
+								</div>
+								<div class="description">Returns an object previously saved via <a href="#writeObject">#writeObject</a>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.writeFile">writeFile</a></b>(path, contents)
+								</div>
+								<div class="description">Writes the given contents to the specified path.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.writeObject">writeObject</a></b>(name, object, depth, level, tabin)
+								</div>
+								<div class="description">Writes the given object out to a file such that it can be read in via <a href="#writeObject">#writeObject</a>.</div>
 							</td>
 						</tr>
 					
@@ -376,6 +432,28 @@ A collection of items related to helping with input/output, as well as loading o
 				<div class="sectionTitle">
 					Field Detail
 				</div>
+				
+					<a name=".lineBreak"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">IO.</span><b>lineBreak</b>
+					
+					</div>
+					<div class="description">
+						The line separator used by the system.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
 				
 					<a name=".path"> </a>
 					<div class="fixedFont">&lt;static&gt; 
@@ -439,6 +517,38 @@ A collection of items related to helping with input/output, as well as loading o
 						
 						
 						
+						
+
+					<hr />
+				
+					<a name=".tab"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">IO.</span><b>tab</b>
+					
+					</div>
+					<div class="description">
+						The value of a "tab" in the data written by writeObject.
+						
+							<br />
+							<i>Defined in: </i> &lt;C:\Documents and Settings\\Art McBain\\My Documents\\Programming\\JavaScript\\JSIRCBot\\ScriptBot\\trunk\\src\\app\io.js&gt;.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								"   " (3 spaces)
+							</dd>
+							</dl>
 						
 
 					
@@ -543,6 +653,212 @@ A collection of items related to helping with input/output, as well as loading o
 						
 						
 
+					<hr />
+				
+					<a name=".readFile"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">IO.</span><b>readFile</b>(path, asLines)
+					
+					</div>
+					<div class="description">
+						Reads in the specified file. Optionally returns the contents as a string or an array of lines.
+						
+							<br />
+							<i>Defined in: </i> &lt;C:\Documents and Settings\\Art McBain\\My Documents\\Programming\\JavaScript\\JSIRCBot\\ScriptBot\\trunk\\src\\app\io.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>path</b>
+									
+								</dt>
+								<dd>The path to the file.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>asLines</b>
+									
+								</dt>
+								<dd><code>true</code> if the output should be returned as an array, <code>false</code> if as a string.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><code>true</code> if the output should be returned as an array, <code>false</code> if as a string.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".readObject"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Object}</span>
+					<span class="light">IO.</span><b>readObject</b>(name)
+					
+					</div>
+					<div class="description">
+						Returns an object previously saved via <a href="#writeObject">#writeObject</a>.
+						
+							<br />
+							<i>Defined in: </i> &lt;C:\Documents and Settings\\Art McBain\\My Documents\\Programming\\JavaScript\\JSIRCBot\\ScriptBot\\trunk\\src\\app\io.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>name</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>an instance of the saved object if present; null if otherwise.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".writeFile"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">IO.</span><b>writeFile</b>(path, contents)
+					
+					</div>
+					<div class="description">
+						Writes the given contents to the specified path.
+						
+							<br />
+							<i>Defined in: </i> &lt;C:\Documents and Settings\\Art McBain\\My Documents\\Programming\\JavaScript\\JSIRCBot\\ScriptBot\\trunk\\src\\app\io.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>path</b>
+									
+								</dt>
+								<dd>Path to the file to be written.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>contents</b>
+									
+								</dt>
+								<dd>The contents of the file to be written.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".writeObject"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">IO.</span><b>writeObject</b>(name, object, depth, level, tabin)
+					
+					</div>
+					<div class="description">
+						Writes the given object out to a file such that it can be read in via <a href="#writeObject">#writeObject</a>.Similar to a "pretty printer" which formats an object so as to be easily viewed in the output window.
+						
+							<br />
+							<i>Defined in: </i> &lt;C:\Documents and Settings\\Art McBain\\My Documents\\Programming\\JavaScript\\JSIRCBot\\ScriptBot\\trunk\\src\\app\io.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>name</b>
+									
+								</dt>
+								<dd>The name of the object to be saved, to be used when read back in.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{object}</span> <b>object</b>
+									
+								</dt>
+								<dd>The object to be saved.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>depth</b>
+									<i>Optional</i>
+								</dt>
+								<dd>The recursive depth at which to stop writing out properites; Default is 10.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>level</b>
+									<i>Optional</i>
+								</dt>
+								<dd>Used only by the algorithm itself.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>tabin</b>
+									<i>Optional</i>
+								</dt>
+								<dd>Used only by the algorithm itself.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
 					
 				
 			
@@ -553,7 +869,7 @@ A collection of items related to helping with input/output, as well as loading o
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://www.jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 2.0.1 on Fri Jul 04 2008 23:15:58 GMT-0500 (CDT)
+			Documentation generated by <a href="http://www.jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 2.0.1 on Sun Jul 06 2008 19:56:47 GMT-0500 (CDT)
 		</div>
 	</body>
 </html>
