@@ -26,7 +26,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 		return true;
 	} else if(msg[0] === "weather" && msg.length === 1) {
 		bot.sendMessage(args[0], args[1] + ": No station provided.");
-		//bot.sendAction(args[0], "slaps, kicks and punches " + args[1]); 
+		bot.sendAction(args[0], "slaps, kicks and punches " + args[1]); 
 		return true;
 	}
 }, "weather");
