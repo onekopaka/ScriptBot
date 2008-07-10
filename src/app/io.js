@@ -20,7 +20,7 @@ IO.fetchURL = function(url, asLines) {
 			if(asLines) {
 				lines.push(input+"");
 			} else {
-				line += input + "\n";
+				line += (input+"") + "\n";
 			}
 		}
 
