@@ -1,6 +1,7 @@
 /**
  * Gets contents of the specified URL. An optional parameter determines the format of the returned data.
  *
+ * @since 2.0.1
  * @param {string} url The url/location to be fetched.
  * @param {boolean} [asLines] <code>true</code> returns the contents as a \n (new line) separated string, <code>false</code> to return the contents as an array of lines.
  * @returns A string or an Array containing the contents of the requested URL.
@@ -39,6 +40,7 @@ IO.fetchURL = function(url, asLines) {
 /**
  * Reads in the specified file. Optionally returns the contents as a string or an array of lines.
  *
+ * @since 2.0.1
  * @param {string} path The path to the file.
  * @param {boolean} asLines <code>true</code> if the output should be returned as an array, <code>false</code> if as a string.
  * @returns <code>true</code> if the output should be returned as an array, <code>false</code> if as a string.
@@ -93,6 +95,7 @@ IO.readFile = function(path, asLines) {
 /**
  * Writes the given contents to the specified path.
  *
+ * @since 2.0.1
  * @param {string} path Path to the file to be written.
  * @param {string} contents The contents of the file to be written.
  */
@@ -129,6 +132,7 @@ IO.writeFile = function(path, contents) {
 /**
  * Returns an object previously saved via {@link #writeObject}.
  *
+ * @since 2.0.1
  * @returns an instance of the saved object if present; null if otherwise.
  * @type Object
  */
@@ -148,6 +152,7 @@ IO.readObject = function(name) {
 /**
  * The value of a "tab" in the data written by writeObject.
  *
+ * @since 2.0.1
  * @default "   " (3 spaces)
  * @type string
  */
@@ -157,6 +162,7 @@ IO.tab = "   ";
  * Writes the given object out to a file such that it can be read in via {@link #readObject}.
  * Similar to a "pretty printer" which formats an object so as to be easily viewed in the output window.
  *
+ * @since 2.0.1
  * @param {string} name The name of the object to be saved, to be used when read back in.
  * @param {object} object The object to be saved.
  * @param {number} [depth] The recursive depth at which to stop writing out properites; Default is 10.

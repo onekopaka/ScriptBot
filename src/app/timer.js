@@ -8,7 +8,7 @@ if(!Util) throw "util.js must be included first!";
  * importing an Java classes directly. It offers simple ways to stop, start, and change
  * the function called when the timer is fired. The timer fires at the set interval.
  *
- * @version 0.2.1
+ * @since 2.0.1
  * @author AMcBain, 2008
  * @constructor
  */
@@ -29,6 +29,7 @@ Util.Timer = function() {
 	/**
 	 * The interval of the timer in seconds; the amount of time between each call to {@link #onTimerFired}.
 	 *
+ 	 * @since 2.0.1
 	 * @default 1
 	 * @type number
 	 */
@@ -50,6 +51,7 @@ Util.Timer = function() {
 	/**
 	 * <code>true</code> if the timer is currently active, <code>false</code> otherwise.
 	 *
+ 	 * @since 2.0.1
 	 * @default false
 	 * @type boolean
 	 */
@@ -76,6 +78,7 @@ Util.Timer = function() {
 	/**
 	 * The function called when the timer fires (the timer's interval is up).
 	 *
+	 * @since 2.0.1
 	 * @default undefined
 	 * @type Function
 	 */

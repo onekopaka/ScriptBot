@@ -1,6 +1,8 @@
 /**
  * A collection of useful functions to handle various things or convert Java objects to JS equivalents.
  *
+ * @author AMcBain, 2008
+ * @since 2.0.1
  * @namespace
  */
 var Util = {
@@ -10,6 +12,7 @@ var Util = {
 	 * and returns a JavaScript boolean literal.Only guaranteed to work
 	 * correctly for Java Boolean objects.
 	 *
+	 * @since 2.0.1
 	 * @param {java.lang.Boolean} value The object to be checked.
 	 * @returns a JavaScript boolean literal.
 	 * @type boolean
@@ -23,6 +26,7 @@ var Util = {
 	 * of undefined and returns a JavaScript boolean literal.Only
 	 * guaranteed to work correctly for Java undefined objects.
 	 *
+	 * @since 2.0.1
 	 * @param {Object} value The object to be checked.
 	 * @returns a JavaScript boolean literal.
 	 * @type boolean
@@ -34,6 +38,7 @@ var Util = {
 	/**
 	 * Converts a Java String-Object to a JavaScript string literal.
 	 *
+	 * @since 2.0.1
 	 * @param {java.lang.String} value The object to be converted.
 	 * @returns a JavaScript string literal.
 	 * @type string
@@ -45,6 +50,7 @@ var Util = {
 	/**
 	 * Verifies the submitted message is intended for the specified target.
 	 *
+	 * @since 2.0.1
 	 * @param {string} target The target to be checked for.
 	 * @param {string} message The message to be checked.
 	 * @returns <code>true</code> if the message for the target, <code>false</code> otherwise.

@@ -3,6 +3,8 @@ importClass(java.lang.System);
 /**
  * A collection of items related to helping with input/output, as well as loading other script files.
  *
+ * @author AMcBain, 2008
+ * @since 2.0.1
  * @namespace
  */
 var IO = {
