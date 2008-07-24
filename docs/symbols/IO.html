@@ -1,0 +1,915 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - IO</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a>
+| <a href="../files.html">File Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/Event.html">Event</a></li>
+	
+	<li><a href="../symbols/IO.html">IO</a></li>
+	
+	<li><a href="../symbols/ScriptBotCore.html">ScriptBotCore</a></li>
+	
+	<li><a href="../symbols/ScriptBotCoreAdapter.html">ScriptBotCoreAdapter</a></li>
+	
+	<li><a href="../symbols/Util.html">Util</a></li>
+	
+	<li><a href="../symbols/Util.Timer.html">Util.Timer</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Namespace IO
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+			
+				
+A collection of items related to helping with input/output, as well as loading other script files.
+				
+				
+					<br /><i>Defined in: </i> &lt;ScriptBot/trunk/src/app\run.js&gt;.
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class IO.">
+				<caption>Namespace Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/IO.html#constructor">IO</a></b>
+							</div>
+							<div class="description">A collection of items related to helping with input/output, as well as loading other script files.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class IO.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								IO.<b><a href="../symbols/IO.html#.lineBreak">lineBreak</a></b>
+								</div>
+								<div class="description">The line separator used by the system.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								IO.<b><a href="../symbols/IO.html#.path">path</a></b>
+								</div>
+								<div class="description">The path to the folder where the shell or bat file to start the bot was run.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								IO.<b><a href="../symbols/IO.html#.separator">separator</a></b>
+								</div>
+								<div class="description">The path separator used by the system.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								IO.<b><a href="../symbols/IO.html#.slash">slash</a></b>
+								</div>
+								<div class="description">Forward or backward slash depending on which OS the bot is being run.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								IO.<b><a href="../symbols/IO.html#.tab">tab</a></b>
+								</div>
+								<div class="description">The value of a "tab" in the data written by writeObject.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class IO.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.fetchURL">fetchURL</a></b>(url, asLines)
+								</div>
+								<div class="description">Gets contents of the specified URL.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.include">include</a></b>(path, relative)
+								</div>
+								<div class="description">Includes the given script file into the current runtime.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.readFile">readFile</a></b>(path, asLines)
+								</div>
+								<div class="description">Reads in the specified file.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.readObject">readObject</a></b>(name)
+								</div>
+								<div class="description">Returns an object previously saved via <a href="#writeObject">#writeObject</a>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.writeFile">writeFile</a></b>(path, contents)
+								</div>
+								<div class="description">Writes the given contents to the specified path.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.writeObject">writeObject</a></b>(name, object, depth, level, tabin)
+								</div>
+								<div class="description">Writes the given object out to a file such that it can be read in via <a href="#readObject">#readObject</a>.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Namespace Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>IO</b>
+				</div>
+				
+				<div class="description">
+					A collection of items related to helping with input/output, as well as loading other script files.
+					<br /><i>Author: </i>AMcBain, 2008.
+				</div>
+				
+				
+				
+				
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">Since:</dt>
+							<dd>2.0.1</dd>
+						</dl>
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".lineBreak"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">IO.</span><b>lineBreak</b>
+					
+					</div>
+					<div class="description">
+						The line separator used by the system.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".path"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">IO.</span><b>path</b>
+					
+					</div>
+					<div class="description">
+						The path to the folder where the shell or bat file to start the bot was run.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".separator"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">IO.</span><b>separator</b>
+					
+					</div>
+					<div class="description">
+						The path separator used by the system.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".slash"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">IO.</span><b>slash</b>
+					
+					</div>
+					<div class="description">
+						Forward or backward slash depending on which OS the bot is being run.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".tab"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">IO.</span><b>tab</b>
+					
+					</div>
+					<div class="description">
+						The value of a "tab" in the data written by writeObject.
+						
+							<br />
+							<i>Defined in: </i> &lt;ScriptBot/trunk/src/app\io.js&gt;.
+						
+						
+					</div>
+					
+					
+
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Since:</dt>
+								<dd>2.0.1</dd>
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								"   " (3 spaces)
+							</dd>
+							</dl>
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".fetchURL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">IO.</span><b>fetchURL</b>(url, asLines)
+					
+					</div>
+					<div class="description">
+						Gets contents of the specified URL. An optional parameter determines the format of the returned data.
+						
+							<br />
+							<i>Defined in: </i> &lt;ScriptBot/trunk/src/app\io.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>url</b>
+									
+								</dt>
+								<dd>The url/location to be fetched.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>asLines</b>
+									<i>Optional</i>
+								</dt>
+								<dd><code>true</code> returns the contents as a \n (new line) separated string, <code>false</code> to return the contents as an array of lines.</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Since:</dt>
+								<dd>2.0.1</dd>
+							</dl>
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>A string or an Array containing the contents of the requested URL.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".include"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">IO.</span><b>include</b>(path, relative)
+					
+					</div>
+					<div class="description">
+						Includes the given script file into the current runtime. An optional parameter describes whether the path is relative or absolute.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>path</b>
+									
+								</dt>
+								<dd>The path to the file.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>relative</b>
+									<i>Optional</i>
+								</dt>
+								<dd><code>true</code> if the path is relative to <a href="#path">#path</a>, <code>false</code> if the path is absolute.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".readFile"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">IO.</span><b>readFile</b>(path, asLines)
+					
+					</div>
+					<div class="description">
+						Reads in the specified file. Optionally returns the contents as a string or an array of lines.
+						
+							<br />
+							<i>Defined in: </i> &lt;ScriptBot/trunk/src/app\io.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>path</b>
+									
+								</dt>
+								<dd>The path to the file.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>asLines</b>
+									
+								</dt>
+								<dd><code>true</code> if the output should be returned as an array, <code>false</code> if as a string.</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Since:</dt>
+								<dd>2.0.1</dd>
+							</dl>
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><code>true</code> if the output should be returned as an array, <code>false</code> if as a string.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".readObject"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Object}</span>
+					<span class="light">IO.</span><b>readObject</b>(name)
+					
+					</div>
+					<div class="description">
+						Returns an object previously saved via <a href="#writeObject">#writeObject</a>.
+						
+							<br />
+							<i>Defined in: </i> &lt;ScriptBot/trunk/src/app\io.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>name</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Since:</dt>
+								<dd>2.0.1</dd>
+							</dl>
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>an instance of the saved object if present; null if otherwise.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".writeFile"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">IO.</span><b>writeFile</b>(path, contents)
+					
+					</div>
+					<div class="description">
+						Writes the given contents to the specified path.
+						
+							<br />
+							<i>Defined in: </i> &lt;ScriptBot/trunk/src/app\io.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>path</b>
+									
+								</dt>
+								<dd>Path to the file to be written.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>contents</b>
+									
+								</dt>
+								<dd>The contents of the file to be written.</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Since:</dt>
+								<dd>2.0.1</dd>
+							</dl>
+							</dl>
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".writeObject"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">IO.</span><b>writeObject</b>(name, object, depth, level, tabin)
+					
+					</div>
+					<div class="description">
+						Writes the given object out to a file such that it can be read in via <a href="#readObject">#readObject</a>.Similar to a "pretty printer" which formats an object so as to be easily viewed in the output window.
+						
+							<br />
+							<i>Defined in: </i> &lt;ScriptBot/trunk/src/app\io.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>name</b>
+									
+								</dt>
+								<dd>The name of the object to be saved, to be used when read back in.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{object}</span> <b>object</b>
+									
+								</dt>
+								<dd>The object to be saved.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>depth</b>
+									<i>Optional</i>
+								</dt>
+								<dd>The recursive depth at which to stop writing out properites; Default is 10.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>level</b>
+									<i>Optional</i>
+								</dt>
+								<dd>Used only by the algorithm itself.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>tabin</b>
+									<i>Optional</i>
+								</dt>
+								<dd>Used only by the algorithm itself.</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Since:</dt>
+								<dd>2.0.1</dd>
+							</dl>
+							</dl>
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+			<hr />
+		</div>
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://www.jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 2.0.1 on Tue Jul 15 2008 17:07:54 GMT-0500 (CDT)
+		</div>
+	</body>
+</html>
