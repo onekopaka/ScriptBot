@@ -98,17 +98,21 @@ IO.readFile = function(path, asLines) {
  * @since 2.0.1
  * @param {string} path Path to the file to be written.
  * @param {string} contents The contents of the file to be written.
+ * @param {boolean} [append] Whether to append the given contents instead of overwriting.
  */
-IO.writeFile = function(path, contents) {
+IO.writeFile = function(path, contents, append) {
 	var contents = contents;
 	if(!(contents instanceof Array)) {
 		contents = [contents];
 	}
 
+	// Append file contents?
+	var apnd = (append)? true : false; // Make it a real boolean for Java.
+
 	var out = null;
 	var error = null;
 	try {
-		out = new java.io.PrintWriter(new java.io.BufferedWriter(new java.io.FileWriter(path, false)));
+		out = new java.io.PrintWriter(new java.io.BufferedWriter(new java.io.FileWriter(path, apnd)));
 		//Write summary file. 
 		for (var i = 0; i < contents.length; i++) {
 			out.println(contents[i]);
