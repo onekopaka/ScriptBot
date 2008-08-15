@@ -141,11 +141,10 @@ IO.writeFile = function(path, contents, append) {
  * @type Object
  */
 IO.readObject = function(name) {
-	IO.include(IO.path + "plugins/data/" + name + ".js");
 	var object = null;
 
 	try {
-		object = IOreadObjectLoadObect();
+		object = JSON.parse(IO.readFile(IO.path + "plugins/data/" + name + ".js"));
 	} catch(e) {
 		// We know.
 	}
@@ -193,11 +192,11 @@ IO.writeObject = function(name, object, depth, level, tabin) {
 
 	// If it is the first level, add function output.
 	if(!level) {
-		output += "function IOreadObjectLoadObject() {" + IO.lineBreak;
-		output += "   return ({" + IO.lineBreak;
 		level = 0;
 		first = true;
-	} else if(object instanceof Object) {
+	}
+
+	if(object instanceof Object || first) {
 		output += "{" + IO.lineBreak;
 	}
 
@@ -339,12 +338,10 @@ IO.writeObject = function(name, object, depth, level, tabin) {
 	}
 
 	// Fix last comma.
-
 	output = output.replace(new RegExp("," + IO.lineBreak + "$"), IO.lineBreak);
 
 	// Add the final function bits.
 	if(first) {
-		output += "   });" + IO.lineBreak;
 		output += "}" + IO.lineBreak;
 
 		// Create the data directory if it exists.
@@ -354,7 +351,7 @@ IO.writeObject = function(name, object, depth, level, tabin) {
 
 		IO.writeFile(IO.path + "plugins/data/" + name + ".js", output);
 	} else if(object instanceof Object) {
-		output += tabin.replace(new RegExp(IO.tab + "$",""), "") + "}" + IO.lineBreak;
+		output += tabin.replace(new RegExp(IO.tab + "$",""), "") + "}," + IO.lineBreak;
 	}
 
 	return (output);
