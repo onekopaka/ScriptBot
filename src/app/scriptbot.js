@@ -191,7 +191,9 @@ function ScriptBotCore() {
 			log("Connection was successful.", SERVER, true);
 
 			// After we connect, join the default channel.
-			this.joinChannel(ircChannel);
+			if(ircChannel) {
+				this.joinChannel(ircChannel);
+			}
 		} catch (e) {
 			// Display connection errors
 			log("Couldn't connect to specified server.", ERROR);
@@ -310,6 +312,7 @@ function ScriptBotCore() {
 		if(Event[event] === undefined) throw ("ScriptBotCore::regsiterUnrestrictedPlugin - Invalid event type!");
 		if(!(handler instanceof Function)) return;
 
+		if(!restrictedHandlers[event]) restrictedHandlers[event] = [];
 		restrictedHandlers[event]["unhandled"] = handler;
 	};
 
@@ -457,7 +460,7 @@ function ScriptBotCore() {
 		// Truly remove items we got rid of above.
 		if(Util.isTrue(unrestricted)) {
 			unrestrictedHandlers[event] = keep;
-		} else {
+		} else if(restrictedHandlers[event]) {
 			keep["unhandled"] = restrictedHandlers[event]["unhandled"];
 			restrictedHandlers[event] = keep;
 		}
@@ -548,7 +551,7 @@ function ScriptBotCore() {
 			}
 
 			// Call the unhandled event listener.
-			if(!handled && functs && functs["unhandled"]) functs["unhandled"](this, type+"", args || []);
+			if(!handled && functs !== undefined && functs["unhandled"]) functs["unhandled"](this, type+"", args || []);
 		} catch(e) {
 			if(e.lineNumber) {
 				print(e.lineNumber + ":" + e);
@@ -639,7 +642,7 @@ function ScriptBotCore() {
 						}
 
 						// Call the unhandled event listener.
-						if(!handled && functs && functs["unhandled"]) functs["unhandled"](this, type+"", args || []);
+						if(!handled && functs !== undefined && functs["unhandled"]) functs["unhandled"](this, type+"", args || []);
 					}
 				}				
 			}
