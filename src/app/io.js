@@ -57,7 +57,7 @@ IO.readFile = function(path, asLines) {
 	var input = null;
 
 	try {
-		input = new java.io.BufferedReader(new java.io.FileReader(new java.io.File(filename)));
+		input = new java.io.BufferedReader(new java.io.FileReader(new java.io.File(path)));
 
 		do {
 			// Read in the line from the file. 
