@@ -1,0 +1,28 @@
+ScriptBot by AMcBain
+Some stuff from irc.mozilla.org/#bots
+
+SUMMARY:
+
+ScriptBot is an IRC bot written in JavaScript using Java via Rhino to get the necessary classes
+to connect to IRC. ScriptBot offers a plugin based model for maximum flexibility in features as
+well as a small API to help in doing other functions not directly related to IRC events.
+
+REQUIREMENTS:
+
+Java must be installed on the machine the bot is to be run on. Minimum Java version
+is limited by Rhino, so it is probably Java 5.0 or higher, though 6.0 is recommended.
+
+
+LICENSE:
+
+ScriptBot Trunk is licensed under the GPL v2. 
+You can see the GPL version 2 as a plain-text file at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
+For a different language, see http://www.gnu.org/licenses/old-licenses/gpl-2.0-translations.html
+
+License Exception:
+
+	Plugins included with the main ScriptBot-src (inside the plugin directory) are subject to the above
+license. This license agreement DOES NOT apply to plugins inside the "xplugins" directory, plugins downloaded
+from the ScriptBot website, or ScriptBot plugin-gallery. Users of such plugins are bound by the terms of
+the license set by the author(s) of said plugins. The authors of ScriptBot are not responsible for the content
+of said plugins, nor for anything which happens as a result of using such plugins.
