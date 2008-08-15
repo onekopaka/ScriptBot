@@ -305,16 +305,6 @@ A collection of items related to helping with input/output, as well as loading o
 							</td>
 						</tr>
 					
-						<tr>
-							<td class="attributes">&lt;static&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								IO.<b><a href="../symbols/IO.html#.tab">tab</a></b>
-								</div>
-								<div class="description">The value of a "tab" in the data written by writeObject.</div>
-							</td>
-						</tr>
-					
 					</tbody>
 				</table>
 				
@@ -366,7 +356,7 @@ A collection of items related to helping with input/output, as well as loading o
 						<tr>
 							<td class="attributes">&lt;static&gt; &nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.readObject">readObject</a></b>(name)
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.readObject">readObject</a></b>(name, funct)
 								</div>
 								<div class="description">Returns an object previously saved via <a href="#writeObject">#writeObject</a>.</div>
 							</td>
@@ -375,7 +365,7 @@ A collection of items related to helping with input/output, as well as loading o
 						<tr>
 							<td class="attributes">&lt;static&gt; &nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.writeFile">writeFile</a></b>(path, contents)
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.writeFile">writeFile</a></b>(path, contents, append)
 								</div>
 								<div class="description">Writes the given contents to the specified path.</div>
 							</td>
@@ -384,7 +374,7 @@ A collection of items related to helping with input/output, as well as loading o
 						<tr>
 							<td class="attributes">&lt;static&gt; &nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.writeObject">writeObject</a></b>(name, object, depth, level, tabin)
+								<div class="fixedFont">IO.<b><a href="../symbols/IO.html#.writeObject">writeObject</a></b>(name, object, funct, tabin)
 								</div>
 								<div class="description">Writes the given object out to a file such that it can be read in via <a href="#readObject">#readObject</a>.</div>
 							</td>
@@ -522,43 +512,6 @@ A collection of items related to helping with input/output, as well as loading o
 						
 						
 						
-						
-
-					<hr />
-				
-					<a name=".tab"> </a>
-					<div class="fixedFont">&lt;static&gt; 
-					
-					<span class="light">{string}</span>
-					<span class="light">IO.</span><b>tab</b>
-					
-					</div>
-					<div class="description">
-						The value of a "tab" in the data written by writeObject.
-						
-							<br />
-							<i>Defined in: </i> &lt;ScriptBot/trunk/src/app\io.js&gt;.
-						
-						
-					</div>
-					
-					
-
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Since:</dt>
-								<dd>2.0.1</dd>
-							</dl>
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Default Value:</dt>
-							<dd>
-								"   " (3 spaces)
-							</dd>
-							</dl>
 						
 
 					
@@ -733,7 +686,7 @@ A collection of items related to helping with input/output, as well as loading o
 					<div class="fixedFont">&lt;static&gt; 
 					
 					<span class="light">{Object}</span>
-					<span class="light">IO.</span><b>readObject</b>(name)
+					<span class="light">IO.</span><b>readObject</b>(name, funct)
 					
 					</div>
 					<div class="description">
@@ -752,10 +705,16 @@ A collection of items related to helping with input/output, as well as loading o
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>name</b>
+									<span class="light fixedFont">{string}</span> <b>name</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>The name of the object to be read.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>funct</b>
+									
+								</dt>
+								<dd>A function used to modify the returned result. Consult JSON documentation.</dd>
 							
 							</dl>
 						
@@ -785,7 +744,7 @@ A collection of items related to helping with input/output, as well as loading o
 					<div class="fixedFont">&lt;static&gt; 
 					
 					
-					<span class="light">IO.</span><b>writeFile</b>(path, contents)
+					<span class="light">IO.</span><b>writeFile</b>(path, contents, append)
 					
 					</div>
 					<div class="description">
@@ -815,6 +774,12 @@ A collection of items related to helping with input/output, as well as loading o
 								</dt>
 								<dd>The contents of the file to be written.</dd>
 							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>append</b>
+									<i>Optional</i>
+								</dt>
+								<dd>Whether to append the given contents instead of overwriting.</dd>
+							
 							</dl>
 						
 						
@@ -836,11 +801,11 @@ A collection of items related to helping with input/output, as well as loading o
 					<div class="fixedFont">&lt;static&gt; 
 					
 					
-					<span class="light">IO.</span><b>writeObject</b>(name, object, depth, level, tabin)
+					<span class="light">IO.</span><b>writeObject</b>(name, object, funct, tabin)
 					
 					</div>
 					<div class="description">
-						Writes the given object out to a file such that it can be read in via <a href="#readObject">#readObject</a>.Similar to a "pretty printer" which formats an object so as to be easily viewed in the output window.
+						Writes the given object out to a file such that it can be read in via <a href="#readObject">#readObject</a>.Similar to a "pretty printer" which formats an object so as to be easily viewed in the output window.Note that all primivites will be wrapped in an array for output.
 						
 							<br />
 							<i>Defined in: </i> &lt;ScriptBot/trunk/src/app\io.js&gt;.
@@ -867,22 +832,16 @@ A collection of items related to helping with input/output, as well as loading o
 								<dd>The object to be saved.</dd>
 							
 								<dt>
-									<span class="light fixedFont">{number}</span> <b>depth</b>
+									<span class="light fixedFont">{Function}</span> <b>funct</b>
 									<i>Optional</i>
 								</dt>
-								<dd>The recursive depth at which to stop writing out properites; Default is 10.</dd>
-							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>level</b>
-									<i>Optional</i>
-								</dt>
-								<dd>Used only by the algorithm itself.</dd>
+								<dd>A function used to modify the output. Consult JSON documentation.</dd>
 							
 								<dt>
 									<span class="light fixedFont">{string}</span> <b>tabin</b>
 									<i>Optional</i>
 								</dt>
-								<dd>Used only by the algorithm itself.</dd>
+								<dd>Used to specify the indentation used in output.</dd>
 							
 							</dl>
 						
@@ -909,7 +868,7 @@ A collection of items related to helping with input/output, as well as loading o
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://www.jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 2.0.1 on Tue Jul 15 2008 17:07:54 GMT-0500 (CDT)
+			Documentation generated by <a href="http://www.jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 2.0.1 on Fri Aug 15 2008 15:05:34 GMT-0500 (CDT)
 		</div>
 	</body>
 </html>
