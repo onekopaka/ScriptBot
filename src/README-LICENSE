@@ -15,9 +15,14 @@ is limited by Rhino, so it is probably Java 5.0 or higher, though 6.0 is recomme
 
 LICENSE:
 
-ScriptBot Trunk is licensed under the GPL v2. 
-You can see the GPL version 2 as a plain-text file at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
-For a different language, see http://www.gnu.org/licenses/old-licenses/gpl-2.0-translations.html
+ScriptBot Trunk is licensed under the Creative Commons Attribution, Share Alike, Non-Commerercial license.
+You can read the brief summary of the license here: http://creativecommons.org/licenses/by-nc-sa/3.0/
+It is highly recommended you read the real license: http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+
+We only ask one item under the "attribution" section:
+1) Please leave any author attributions (and associated tags) in the code or comments, and do not remove any links
+to the project homepage: http://scriptbot.asmcbain.net
+
 
 License Exception:
 
@@ -25,4 +30,4 @@ License Exception:
 license. This license agreement DOES NOT apply to plugins inside the "xplugins" directory, plugins downloaded
 from the ScriptBot website, or ScriptBot plugin-gallery. Users of such plugins are bound by the terms of
 the license set by the author(s) of said plugins. The authors of ScriptBot are not responsible for the content
-of said plugins, nor for anything which happens as a result of using such plugins.
+of said plugins, nor for anything which happens as a result of downloading and/or using such plugins.
