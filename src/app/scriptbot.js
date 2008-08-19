@@ -780,7 +780,7 @@ function ScriptBotCore() {
 		this.fireEvent(Event.TIME, [sourceNick+"", sourceLogin+"", sourceHostname+"", target+""]);
 	}
 	this.onTopic = function(channel, topic, setBy, date, changed) {
-		this.fireEvent(Event.TOPIC, [channel+"", topic+"", setBy+"", new Date(date), changed]);
+		this.fireEvent(Event.TOPIC, [channel+"", topic+"", setBy+"", new Date(date), Util.isTrue(changed)]);
 	}
 	this.onUnknown = function(line) {
 		this.fireEvent(Event.UNKNOWN, [line+""]);
