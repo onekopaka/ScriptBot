@@ -53,7 +53,7 @@ var Util = {
 	 * @since 2.0.1
 	 * @param {string} target The target to be checked for.
 	 * @param {string} message The message to be checked.
-	 * @returns <code>true</code> if the message for the target, <code>false</code> otherwise.
+	 * @returns <code>true</code> if the message is for the target, <code>false</code> otherwise.
 	 */
 	verifyTarget: function(target, message) {
 		return ((message+"").match(new RegExp("^" + target + "\\W?\\s?")) != null);
