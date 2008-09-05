@@ -36,6 +36,19 @@ var Util = {
 	},
 
 	/**
+	 * Removes white-space characters from the beginning of the given value.
+	 *
+	 * @since 2.0.1
+	 * @param {string} value The string to be trimmed.
+	 * @returns a string
+	 * @type string
+	 */
+	trim: function(value) {
+		return (value+"").replace(/^\s+/,"").replace(/\s+$/,"");
+
+	},
+
+	/**
 	 * Converts a Java String-Object to a JavaScript string literal.
 	 *
 	 * @since 2.0.1
