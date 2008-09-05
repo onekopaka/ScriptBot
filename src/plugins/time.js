@@ -21,12 +21,12 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 
 	// Only respond to "time" messages.
 	if(msg.substring(0, 4) === "time") {
-		msg = msg.substring(4).replace(/^\s+/,"").replace(/\s+$/,"");
+		msg = Util.trim(msg.substring(4));
 		var date = new Date();
 
 		// Handle bot-local time.
 		if(msg.substring(0, 4) === "time") {
-			msg = msg.substring(4).replace(/^\s+/,"");
+			msg = Util.trim(msg.substring(4));
 			var hours = date.getHours();
 			var minutes = date.getMinutes();
 			var post = "";

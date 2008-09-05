@@ -17,7 +17,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 
 	// Only respond to "time" messages.
 	if(msg.substring(0, 6) === "reload") {
-		msg = msg.substring(6).replace(/^\s+/,"").replace(/\s+$/,"");
+		msg = Util.trim(msg.substring(6));
 
 		if(msg !== "" && msg !== "reload") {
 			try {
