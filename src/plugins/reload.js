@@ -19,12 +19,19 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	if(msg.substring(0, 6) === "reload") {
 		msg = msg.substring(6).replace(/^\s+/,"").replace(/\s+$/,"");
 
-		if(msg !== "") {
-			IO.include("plugins" + IO.slash + msg + ".js");
+		if(msg !== "" && msg !== "reload") {
+			try {
+				IO.include("plugins" + IO.slash + msg + ".js");
+			} catch(e) {
+				bot.sendMessage(args[0], "Reloading plugin failed. Check your spelling, or maybe the plugin doesn't exist.");
+			}
 		} else {
 			bot.sendMessage(args[0], "Please specify a plugin name to be reloaded, " + args[1]);
 		}
 
 		return true;
 	}
+});
+core.registerPluginInfo("reload", function(bot, event, args, priv) {
+	bot.sendMessage(args[0], bot.prefix + "reload [plugin] - Used for testing, reloads the given plugin's file.");
 });
