@@ -33,5 +33,5 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	}
 });
 core.registerPluginInfo("reload", function(bot, event, args, priv) {
-	bot.sendMessage(args[0], bot.prefix + "reload [plugin] - Used for testing, reloads the given plugin's file.");
+	bot.sendMessage(args[0], bot.prefix + "reload [plugin] - Used for testing, (re)loads the given plugin's file.");
 });
