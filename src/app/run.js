@@ -39,10 +39,26 @@ var IO = {
 	 * @param {string} [relative] <code>true</code> if the path is relative to {@link #path}, <code>false</code> if the path is absolute.
 	 */
 	include: function(path, relative) {
+		var error = false;
 		if(relative || (relative === undefined)) {
-			load(this.path + path);
+			var fpath = this.path + path;
+			if((new java.io.File(fpath)).exists()) {
+				load(fpath);
+			} else {
+				error = fpath;
+			}
 		} else {
-			load(path);
+			if((new java.io.File(path)).exists()) {
+				load(path);
+			} else {
+				error = path;
+			}
+		}
+		if(error) {
+			var err = new Error("IO.include: File does not exist!");
+			err.lineNumber = 0;
+			err.fileName = error;
+			throw err;
 		}
 	}
 }
