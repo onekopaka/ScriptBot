@@ -4,6 +4,7 @@
 
 	"name": "ScriptBot",
 	"password": "",
+	"prefix": "@",
 
 	"server": "irc.mozilla.org",
 	"channels": ["#bots-test"],
