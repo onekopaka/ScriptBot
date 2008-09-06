@@ -1,16 +1,16 @@
-/************************************************
-* A simple time plugin. It responds to "wtime"  *
-* and returns the current time of the machine   *
-* on which the bot is being run. Alternatively, *
-* a place can be specified, and the bot will    *
-* ask worldtimeserver.com for the current time  *
-* in the location and return it.                *
-*                                               *
-* World Time Plugin - By A.McBain               *
-*                                               *
-* The World Time plugin is licensed under the   *
-* Creative Commons Share Alike License          *
-************************************************/
+/***************************************************
+* A simple time plugin. It responds to "wtime"     *
+* and returns the current time of the machine      *
+* on which the bot is being run. Alternatively,    *
+* a place can be specified, and the bot will       *
+* ask worldtimeserver.com for the current time     *
+* in the location and return it.                   *
+*                                                  *
+* World Time Plugin - By A.McBain                  *
+*                                                  *
+* The World Time plugin is licensed under the      *
+* Creative Commons Attribution Share Alike License *
+***************************************************/
 
 // Remove any other "time" plugins.
 core.unregisterPluginByEvent(Event.MESSAGE, "wtime");
