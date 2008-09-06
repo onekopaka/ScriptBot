@@ -28,6 +28,7 @@ try {
 	if(!config.server) throw "Cannot connect to IRC, no server specified. Check config file.";
 	if(!config.channels) throw "Cannot connect to IRC, no bot name listed. Check config file.";
 	if(config.channels.length === 0) throw "Must specify at least one channel to join IRC. Check config file.";
+	if(config.prefix) core.prefix = config.prefix;
 
 	// Join IRC.
 	core.initialize(config.name, config.server);
