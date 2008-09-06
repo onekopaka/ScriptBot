@@ -639,15 +639,15 @@ function ScriptBotCore() {
 				}
 
 				// Convert our name to the prefix.
-				if(args[args.length-1].indexOf(this.getNick()) === 0) {
-					args[args.length-1] = args[args.length-1].replace(new RegExp("^" + this.getNick() + "\\W?\\s?"), obj.prefix);
+				if(args[args.length-1].toLowerCase().indexOf(this.getNick().toLowerCase()+"") === 0) {
+					args[args.length-1] = args[args.length-1].replace(new RegExp("^" + this.getNick() + "\\W*\\s*"), obj.prefix).replace(new RegExp("^" + this.getNick().toLowerCase() + "\\W*\\s*"), obj.prefix);
 				}
 
 				// Process restricted items.
 				if(args[args.length-1].indexOf(prefix) === 0) {
 
 					// Remove prefix.
-					args[args.length-1] = args[args.length-1].replace(new RegExp("^\\" + prefix), "").replace(/^\s+/,"");
+					args[args.length-1] = args[args.length-1].replace(new RegExp("^\\" + prefix + "\\s*"), "");
 
 					// Catch help/info commands.
 					if(args[args.length-1].match(/^help\s*/) || args[args.length-1].match(/^info\s*/)) {
