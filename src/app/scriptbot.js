@@ -238,6 +238,15 @@ function ScriptBotCore() {
 	var informationHandlers = {};
 
 	/**
+	 * A function to be called if the information event was not handled.
+	 *
+	 * @private
+	 * @default null
+	 * @type Function
+	 */
+	var informationHandlers = null;
+
+	/**
 	 * Returns a list of all the names of the registered information handlers. This
 	 * can be used as a general guide to the plugins installed in this bot. However,
 	 * it is possible certain plugins did not register an information handler, in
@@ -333,6 +342,20 @@ function ScriptBotCore() {
 
 		handler.id = id;
 		informationHandlers[plugin] = handler;
+	};
+
+	/**
+	 * Registers a handler to be called when a no information handlers were called
+	 * for a given information request.
+	 *
+	 * @since 2.0.1
+	 * @see #registerPluginInfo
+	 * @param {Function} handler The function to be called when this event is fired.
+	 */
+	this.registerUnhandledPluginInfo = function(handler) {
+		if(!(handler instanceof Function)) return;
+
+		unhandledInfoHandler = handler;
 	};
 
 	/**
@@ -486,14 +509,16 @@ function ScriptBotCore() {
 	 * Unregisters a help entry so that it is no longer called.
 	 *
 	 * @since 2.0.1
-	 * @see #unregisterPluginByEvent
+	 * @see #registerPluginInfo
 	 * @param {string} plugin The name or id of the plugin information being removed.
-	 * @param {boolean} id Is the first parameter an id?
+	 * @param {boolean} id <code>true</code> if the first parameter is an id, <code>false</code> otherwise.
 	 * @returns <code>true</code> if anything was unregsitered, <code>false</code> otherwise.
 	 * @type boolean
 	 */
 	this.unregisterPluginInfo = function(plugin, id) {
 		if(Util.isUndefined(plugin)) return;
+
+		var somethingRemoved = false;
 
 		// Handle ids.
 		if(Util.isTrue(id)) {
@@ -513,8 +538,20 @@ function ScriptBotCore() {
 			if(informationHandlers[plugin] !== undefined) somethingRemoved = true;
 			delete informationHandler[plugin];
 		}
+
+		return (somethingRemoved);
 	};
 
+
+	/**
+	 * Unregisters the function called when nothing handles an information request.
+	 *
+	 * @since 2.0.1
+	 * @see #registerUnhandledPluginInfo
+	 */
+	this.unregisterUnhandledPluginInfo = function() {
+		unhandledPluginHandler = null;
+	};
 
 	/**
 	 * Fires the given event (type) with the following arguments (in an array).
@@ -621,9 +658,18 @@ function ScriptBotCore() {
 						if(handler) {
 							handler(this, type+"", args, priv);
 						} else {
-							var cmd = args[args.length-1].substring(0, Math.min(args[args.length-1].length, 20));
-							if(args[args.length-1].length > 10) cmd += "...";
-							this.sendMessage(args[0], "I could not find any information on '" + cmd + "', " + args[1]);
+							var handled = false;
+							if(!unhandledInfoHandler) {
+								handled = handler(this, type+"", args, priv);
+							}
+
+							// Do the default action if they don't handle it.
+							if(!handled) {
+								var cmd = args[args.length-1].substring(0, Math.min(args[args.length-1].length, 20));
+								if(args[args.length-1].length > 10) cmd += "...";
+								this.sendMessage(args[0], "I could not find any information on '" + cmd + "', " + args[1]);
+							}
+								
 						}
 					} else {
 						var handled = false;
