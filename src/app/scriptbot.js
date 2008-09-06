@@ -244,7 +244,7 @@ function ScriptBotCore() {
 	 * @default null
 	 * @type Function
 	 */
-	var informationHandlers = null;
+	var unhandledInfoHandler = null;
 
 	/**
 	 * Returns a list of all the names of the registered information handlers. This
@@ -608,7 +608,7 @@ function ScriptBotCore() {
 	 */
 	var prefix = "@";
 	this.__defineSetter__("prefix", function(value) {
-		prefix = value;
+		if(prefix) prefix = value;
 		return (value);
 	});
 	this.__defineGetter__("prefix", function() {
