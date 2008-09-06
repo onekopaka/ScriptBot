@@ -5,6 +5,11 @@
 * a place can be specified, and the bot will    *
 * ask worldtimeserver.com for the current time  *
 * in the location and return it.                *
+*                                               *
+* World Time Plugin - By A.McBain               *
+*                                               *
+* The World Time plugin is licensed under the   *
+* Creative Commons Share Alike License          *
 ************************************************/
 
 // Remove any other "time" plugins.
@@ -19,13 +24,31 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 
 		// Handle bot-local time; otherwise foreign time.
 		if(msg !== "") {
-			var result = IO.fetchURL("http://www.worldtimeserver.com/search.aspx?searchfor=" + msg).replace(/\n/g,"");
-			result = /<div id="analog-digital">\s+<span class="font7">(.*?)<\/span>\s+<\/div>/.exec(result);
-			if(result !== null) {
-				result = Util.trim(result[1]);
-				bot.sendMessage(args[0], "The current time in " + msg + " is " + result + ". (www.worldtimeserver.com/search.aspx?searchfor=" + msg + ")");
-			} else {
-				bot.sendMessage(args[0], "Could not get the current time for " + msg + ".");
+			var result = IO.fetchURL("http://www.worldtimeserver.com/search.aspx?searchfor=" + msg.replace(/\s+/g,"+")).replace(/\n/g,"");
+			var title = /<title>(.*?)<\/title>/.exec(result);
+			var time = /<div id="analog-digital">\s+<span class="font7">(.*?)<\/span>\s+<\/div>/.exec(result);
+			if(time !== null) {
+				time = Util.trim(time[1]);
+				bot.sendMessage(args[0], "The current time in " + msg + " is " + time + ". (www.worldtimeserver.com/search.aspx?searchfor=" + msg + ")");
+			} else if(title !== null && title.length > 1 && title[1] === "World Time Server Search Results")  {
+				result = result.substring(result.indexOf("<p>") + 3, result.lastIndexOf("</p>")).split("<a");
+				var cities = "";
+				if(result.length > 1) {
+					for(var i = 1; i < result.length; i++) {
+						var parts = /href="(.*?)">(.*?)<\/a>/.exec(result[i]);
+						if(parts) {
+							cities += parts[2] + " (" + parts[1].substring(parts[1].lastIndexOf("_") + 1, parts[1].lastIndexOf(".")) + "), ";
+						}
+					}
+					cities = cities.replace(/,\s$/,"");
+					if(cities.substring(0,cities.indexOf(" (")) !== "Please click here to go to the World Time Server web site") {
+						bot.sendMessage(args[0], "Did you mean: " + cities);
+					} else if(msg === "here") {
+						bot.sendMessage(args[0], "Could not get the current time for " + msg + ". No, seriously. Get a watch.");
+					} else {
+						bot.sendMessage(args[0], "Could not get the current time for " + msg + ".");
+					}
+				}
 			}
 		}
 
