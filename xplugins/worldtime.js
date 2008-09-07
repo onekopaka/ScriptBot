@@ -29,7 +29,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			var time = /<div id="analog-digital">\s+<span class="font7">(.*?)<\/span>\s+<\/div>/.exec(result);
 			if(time !== null) {
 				time = Util.trim(time[1]);
-				bot.sendMessage(args[0], "The current time in " + msg + " is " + time + ". (www.worldtimeserver.com/search.aspx?searchfor=" + msg + ")");
+				bot.sendMessage(args[0], "The current time in " + msg + " is " + time + ". (www.worldtimeserver.com/search.aspx?searchfor=" + msg.replace(/\s+/g,"+") + ")");
 			} else if(title !== null && title.length > 1 && title[1] === "World Time Server Search Results")  {
 				result = result.substring(result.indexOf("<p>") + 3, result.lastIndexOf("</p>")).split("<a");
 				var cities = "";
