@@ -56,5 +56,5 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	}
 }, "wtime");
 core.registerPluginInfo("wtime", function(bot, event, args, priv) {
-	bot.sendMessage(args[0], bot.prefix + "wtime [location] - Attempts to find the current time in the given location. If the location cannot be found, a list of alternatives may be displayed. Enter one of the abbrieviations in parenthesis and try again.");
+	bot.sendMessage(args[0], bot.prefix + "wtime [location] - Attempts to find the current time in the given location. If the location cannot be found, a list of alternatives may be displayed. Enter one of the abbreviations in parenthesis and try again.");
 });
