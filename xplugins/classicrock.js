@@ -1,7 +1,7 @@
 /**
  * Classic Rock Quote Plugin
  * Developed by Darren VanBuren July 2008
- * Licensed under GPL. Just like the rest of ScriptBot.
+ * Licensed under GPL.
  */
 core.unregisterPluginByEvent(Event.MESSAGE, "classicrock");
 core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
@@ -19,6 +19,9 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 				// Hotel California - Eagles - Hotel California
 				classicrockquotes.push("They stab it with their steely knifes, but they just can't kill the beast!");
 				classicrockquotes.push("You can check out anytime you like, but you can never leave!");
+				// One of My Turns - Pink Floyd - The Wall
+				classicrockquotes.push("I feel. Cold as a razor blade, tight as a tourniquet, dry as a funeral drum.");
+				classicrockquotes.push("Would you like to watch TV or get between the sheets or contemplate the silent freeway, would ya like something to eat?")
 		};
 		var quote = classicrockquotes[Math.floor(Math.random()*classicrockquotes.length)];
 		bot.sendMessage(args[0], args[1] + ": " + quote);
