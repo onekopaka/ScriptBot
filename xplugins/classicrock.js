@@ -24,6 +24,8 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 				classicrockquotes.push("Would you like to watch TV or get between the sheets or contemplate the silent freeway, would ya like something to eat?");
 				// Kashmir - Led Zeppelin
 				classicrockquotes.push("Sit with elders of a gentle race.");
+				// Another Brick in the Wall Part 2 - Pink Floyd - The Wall
+				classicrockquotes.push("If you don't eat your meat, you can't have any pudding! How can you have any pudding if you don't eat your meat?");
 		};
 		var quote = classicrockquotes[Math.floor(Math.random()*classicrockquotes.length)];
 		bot.sendMessage(args[0], args[1] + ": " + quote);
