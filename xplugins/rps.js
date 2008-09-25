@@ -16,7 +16,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 		var msg = false;
 		if(ans === user) {
 			bot.sendMessage(args[0], ans + ". We tied.");
-			return;
+			return true;
 		} else if(ans === "rock") {
 			msg = user !== "paper";
 		} else if(ans === "paper") {
