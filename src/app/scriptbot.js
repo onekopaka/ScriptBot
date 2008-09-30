@@ -382,10 +382,10 @@ function ScriptBotCore() {
 
 			var keep = [];
 			var event = unrestrictedHandlers[i];
-			for(var i = 0; i < event.lenth; i++) {
+			for(var i = 0; i < event.length; i++) {
 
 				// Keep all good handlers (not the ones for which we're looking).
-				if(!(event[i] == id || event[i].id == id)) {
+				if(!(event[i] == plugin || event[i].id == plugin)) {
 					keep.push(event[i]);
 				} else {
 					somethingRemoved = true;
@@ -401,10 +401,10 @@ function ScriptBotCore() {
 
 			var keep = [];
 			var event = restrictedHandlers[i];
-			for(var i = 0; i < event.lenth; i++) {
+			for(var i = 0; i < event.length; i++) {
 
 				// Keep all good handlers (not the ones for which we're looking).
-				if(!(event[i] == id || event[i].id == id)) {
+				if(!(event[i] == plugin || event[i].id == plugin)) {
 					keep.push(event[i]);
 				} else {
 					somethingRemoved = true;
@@ -412,8 +412,10 @@ function ScriptBotCore() {
 			}
 
 			// Truly remove items we got rid of above.
-			keep["unhandled"] =  restrictedHandlers[i]["unhandled"];
-			restrictedHandlers[i] = keep;
+			if(restrictedHandlers[i] !== undefined) {
+				keep["unhandled"] =  restrictedHandlers[i]["unhandled"];
+				restrictedHandlers[i] = keep;
+			}
 		}
 
 		// If they provided a function instead of an id, process the info parameter.
