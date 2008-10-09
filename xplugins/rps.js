@@ -40,7 +40,3 @@ function rockpaperscissors(bot, event, args, priv) {
 core.registerPluginInfo("rock", rockpaperscissors);
 core.registerPluginInfo("paper", rockpaperscissors);
 core.registerPluginInfo("scissors", rockpaperscissors);
-
-core.registerUnhandledEventPlugin(Event.MESSAGE, function(bot, event, args, priv) {
-	bot.sendMessage(args[0], "I don't know anything about '" + args[args.length-1].substring(0, Math.min(args[args.length-1].length, 20)) + "', " + args[1]);
-});
