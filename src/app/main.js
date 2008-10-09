@@ -1,4 +1,5 @@
 // Help
+print("");
 print("*NIX    - press ^C to force the program to end");
 print("Windows - press ^C, then type 'y' to force end");
 print("IRC     - use the quit command to close nicely\n");
