@@ -1,11 +1,11 @@
-/************************************************
+/**
  *  Bugzilla Plugin
-    Developed by Darren VanBuren July 2008
-    Licensed under GPL.
-    Currently not finished. All it does is output
-    a URL. We want to parse but whoever thought
-    of an XML library for JavaScript?
- ************************************************/
+ *  Developed by Darren VanBuren July 2008
+ *  Licensed under GPL.
+ *  Currently not finished. All it does is output
+ *  a URL. We want to parse but whoever thought
+ *  of an XML library for JavaScript?
+ */
 core.unregisterPluginByEvent(Event.MESSAGE, "bugzilla");
 core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var msg = args[args.length-1].split(/\s+/g);
