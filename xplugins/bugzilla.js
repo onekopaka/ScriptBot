@@ -1,8 +1,8 @@
-/**
+/************************************************
  * Bugzilla Plugin
  * Developed by Darren VanBuren July 2008
  * Licensed under GPL.
- */
+ ************************************************/
 core.unregisterPluginByEvent(Event.MESSAGE, "bugzilla");
 core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var msg = args[args.length-1].split(/\s+/g);
