@@ -659,8 +659,8 @@ function ScriptBotCore() {
 							handler(this, type+"", args, priv);
 						} else {
 							var handled = false;
-							if(!unhandledInfoHandler) {
-								handled = handler(this, type+"", args, priv);
+							if(unhandledInfoHandler) {
+								handled = unhandledInfoHandler(this, type+"", args, priv);
 							}
 
 							// Do the default action if they don't handle it.
