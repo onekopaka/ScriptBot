@@ -1,0 +1,1773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - Event</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a>
+| <a href="../files.html">File Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/Event.html">Event</a></li>
+	
+	<li><a href="../symbols/IO.html">IO</a></li>
+	
+	<li><a href="../symbols/ScriptBotCore.html">ScriptBotCore</a></li>
+	
+	<li><a href="../symbols/ScriptBotCoreAdapter.html">ScriptBotCoreAdapter</a></li>
+	
+	<li><a href="../symbols/Util.html">Util</a></li>
+	
+	<li><a href="../symbols/Util.Timer.html">Util.Timer</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Namespace Event
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+			
+				
+Holds all the event keys, which can be used for registering a plugin.
+				
+				
+					<br /><i>Defined in: </i> &lt;ScriptBot/trunk/src/app\scriptbot.js&gt;.
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Event.">
+				<caption>Namespace Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/Event.html#constructor">Event</a></b>
+							</div>
+							<div class="description">Holds all the event keys, which can be used for registering a plugin.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class Event.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.ACTION">ACTION</a></b>
+								</div>
+								<div class="description">Fired on action events.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.CHANNEL_BAN_REMOVED">CHANNEL_BAN_REMOVED</a></b>
+								</div>
+								<div class="description">Fired when a channel ban is removed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.CHANNEL_INFO">CHANNEL_INFO</a></b>
+								</div>
+								<div class="description">Fired when channel information is received.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.CHANNEL_KEY_REMOVED">CHANNEL_KEY_REMOVED</a></b>
+								</div>
+								<div class="description">Fired when a channel key is removed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.CHANNEL_LIMIT_REMOVED">CHANNEL_LIMIT_REMOVED</a></b>
+								</div>
+								<div class="description">Fired when a channel limit is removed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.CONNECT">CONNECT</a></b>
+								</div>
+								<div class="description">Fired on connection events.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.DE_VOICE">DE_VOICE</a></b>
+								</div>
+								<div class="description">Fired when someone is devoiced.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.DEOP">DEOP</a></b>
+								</div>
+								<div class="description">Fired when someone is deoped.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.DISCONNECT">DISCONNECT</a></b>
+								</div>
+								<div class="description">Fired when the bot is disconnected.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.FINGER">FINGER</a></b>
+								</div>
+								<div class="description">Fired when someone sends a CTCP FINGER to the bot.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.INVITE">INVITE</a></b>
+								</div>
+								<div class="description">Fired when the bot is invited to a channel.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.INVITE_ONLY_REMOVED">INVITE_ONLY_REMOVED</a></b>
+								</div>
+								<div class="description">Fired when a channel is made invitation only.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.JOIN">JOIN</a></b>
+								</div>
+								<div class="description">Fired when someone joins a channel.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.KICK">KICK</a></b>
+								</div>
+								<div class="description">Fired when someone is kicked.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.MESSAGE">MESSAGE</a></b>
+								</div>
+								<div class="description">Fired when someone says something on a channel.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.MODE">MODE</a></b>
+								</div>
+								<div class="description">Fired when a channel mode is changed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.MODERATED_REMOVED">MODERATED_REMOVED</a></b>
+								</div>
+								<div class="description">Fired when a channel removes moderation mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.NICK_CHANGE">NICK_CHANGE</a></b>
+								</div>
+								<div class="description">Fired when someone changes their nick.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.NO_EXTERNAL_MESSAGES_REMOVED">NO_EXTERNAL_MESSAGES_REMOVED</a></b>
+								</div>
+								<div class="description">Fired when a channel removes no-external-messages mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.NOTICE">NOTICE</a></b>
+								</div>
+								<div class="description">Fired when someone sends a notice to the bot.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.OP">OP</a></b>
+								</div>
+								<div class="description">Fired when someone is opped.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.PART">PART</a></b>
+								</div>
+								<div class="description">Fired when someone parts a channel.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.PING">PING</a></b>
+								</div>
+								<div class="description">Fired when someone pings the bot.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.PRIVATE_MESSAGE">PRIVATE_MESSAGE</a></b>
+								</div>
+								<div class="description">Fired when someone sends a private message to the bot.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.PRIVATE_REMOVED">PRIVATE_REMOVED</a></b>
+								</div>
+								<div class="description">Fired when a channel is no longer private.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.QUIT">QUIT</a></b>
+								</div>
+								<div class="description">Fired when someone disconnects from the server.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.SECRET_REMOVED">SECRET_REMOVED</a></b>
+								</div>
+								<div class="description">Fired when a channel is no longer secret.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.SERVER_RESPONSE">SERVER_RESPONSE</a></b>
+								</div>
+								<div class="description">Fired when the bot receives a server response line.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.SET_CHANNEL_BAN">SET_CHANNEL_BAN</a></b>
+								</div>
+								<div class="description">Fired when a channel bans someone.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.SET_CHANNEL_KEY">SET_CHANNEL_KEY</a></b>
+								</div>
+								<div class="description">Fired when a channel sets a channel key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.SET_CHANNEL_LIMIT">SET_CHANNEL_LIMIT</a></b>
+								</div>
+								<div class="description">Fired when a channel limit is set.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.SET_INVITE_ONLY">SET_INVITE_ONLY</a></b>
+								</div>
+								<div class="description">Fired when a channel is made invitation only.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.SET_MODERATED">SET_MODERATED</a></b>
+								</div>
+								<div class="description">Fired when a channel is made moderater only.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.SET_NO_EXTERNAL_MESSAGES">SET_NO_EXTERNAL_MESSAGES</a></b>
+								</div>
+								<div class="description">Fired when a channel no longer accepts external messages.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.SET_PRIVATE">SET_PRIVATE</a></b>
+								</div>
+								<div class="description">Fired when a channel is made private.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.SET_SECRET">SET_SECRET</a></b>
+								</div>
+								<div class="description">Fired when a channel is made secret.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.SET_TOPIC_PROTECTION">SET_TOPIC_PROTECTION</a></b>
+								</div>
+								<div class="description">Fired when a channel sets topic protection.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.TIME">TIME</a></b>
+								</div>
+								<div class="description">Fired when the bot receives a CTCP TIME command.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.TOPIC">TOPIC</a></b>
+								</div>
+								<div class="description">Fired when the bot receives a channels topic.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.TOPIC_PROTECTION_REMOVED">TOPIC_PROTECTION_REMOVED</a></b>
+								</div>
+								<div class="description">Fired when a channel removes topic protection.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.UNKNOWN">UNKNOWN</a></b>
+								</div>
+								<div class="description">Fired when an unknown line is received.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.USER_LIST">USER_LIST</a></b>
+								</div>
+								<div class="description">Fired when the bot receives a channel's user-list.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.USER_MODE">USER_MODE</a></b>
+								</div>
+								<div class="description">Fired when a user mode is set.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.VERSION">VERSION</a></b>
+								</div>
+								<div class="description">Fired when the bot receives a CTCP TIME commmand.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Event.<b><a href="../symbols/Event.html#.VOICE">VOICE</a></b>
+								</div>
+								<div class="description">Fired when someone is given voice.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Namespace Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>Event</b>
+				</div>
+				
+				<div class="description">
+					Holds all the event keys, which can be used for registering a plugin.
+					<br /><i>Author: </i>AMcBain, 2008.
+				</div>
+				
+				
+				
+				
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">Since:</dt>
+							<dd>2.0.1</dd>
+						</dl>
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".ACTION"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>ACTION</b>
+					
+					</div>
+					<div class="description">
+						Fired on action events.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".CHANNEL_BAN_REMOVED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>CHANNEL_BAN_REMOVED</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel ban is removed.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".CHANNEL_INFO"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>CHANNEL_INFO</b>
+					
+					</div>
+					<div class="description">
+						Fired when channel information is received.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".CHANNEL_KEY_REMOVED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>CHANNEL_KEY_REMOVED</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel key is removed.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".CHANNEL_LIMIT_REMOVED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>CHANNEL_LIMIT_REMOVED</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel limit is removed.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".CONNECT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>CONNECT</b>
+					
+					</div>
+					<div class="description">
+						Fired on connection events.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".DE_VOICE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>DE_VOICE</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone is devoiced.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".DEOP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>DEOP</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone is deoped.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".DISCONNECT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>DISCONNECT</b>
+					
+					</div>
+					<div class="description">
+						Fired when the bot is disconnected.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".FINGER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>FINGER</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone sends a CTCP FINGER to the bot.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".INVITE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>INVITE</b>
+					
+					</div>
+					<div class="description">
+						Fired when the bot is invited to a channel.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".INVITE_ONLY_REMOVED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>INVITE_ONLY_REMOVED</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel is made invitation only.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".JOIN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>JOIN</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone joins a channel.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".KICK"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>KICK</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone is kicked.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MESSAGE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>MESSAGE</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone says something on a channel.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>MODE</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel mode is changed.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODERATED_REMOVED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>MODERATED_REMOVED</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel removes moderation mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".NICK_CHANGE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>NICK_CHANGE</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone changes their nick.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".NO_EXTERNAL_MESSAGES_REMOVED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>NO_EXTERNAL_MESSAGES_REMOVED</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel removes no-external-messages mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".NOTICE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>NOTICE</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone sends a notice to the bot.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".OP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>OP</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone is opped.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PART"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>PART</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone parts a channel.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PING"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>PING</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone pings the bot.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PRIVATE_MESSAGE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>PRIVATE_MESSAGE</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone sends a private message to the bot.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PRIVATE_REMOVED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>PRIVATE_REMOVED</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel is no longer private.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".QUIT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>QUIT</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone disconnects from the server.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SECRET_REMOVED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>SECRET_REMOVED</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel is no longer secret.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SERVER_RESPONSE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>SERVER_RESPONSE</b>
+					
+					</div>
+					<div class="description">
+						Fired when the bot receives a server response line.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SET_CHANNEL_BAN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>SET_CHANNEL_BAN</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel bans someone.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SET_CHANNEL_KEY"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>SET_CHANNEL_KEY</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel sets a channel key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SET_CHANNEL_LIMIT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>SET_CHANNEL_LIMIT</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel limit is set.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SET_INVITE_ONLY"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>SET_INVITE_ONLY</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel is made invitation only.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SET_MODERATED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>SET_MODERATED</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel is made moderater only.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SET_NO_EXTERNAL_MESSAGES"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>SET_NO_EXTERNAL_MESSAGES</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel no longer accepts external messages.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SET_PRIVATE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>SET_PRIVATE</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel is made private.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SET_SECRET"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>SET_SECRET</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel is made secret.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SET_TOPIC_PROTECTION"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>SET_TOPIC_PROTECTION</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel sets topic protection.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TIME"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>TIME</b>
+					
+					</div>
+					<div class="description">
+						Fired when the bot receives a CTCP TIME command.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TOPIC"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>TOPIC</b>
+					
+					</div>
+					<div class="description">
+						Fired when the bot receives a channels topic.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TOPIC_PROTECTION_REMOVED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>TOPIC_PROTECTION_REMOVED</b>
+					
+					</div>
+					<div class="description">
+						Fired when a channel removes topic protection.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".UNKNOWN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>UNKNOWN</b>
+					
+					</div>
+					<div class="description">
+						Fired when an unknown line is received.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".USER_LIST"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>USER_LIST</b>
+					
+					</div>
+					<div class="description">
+						Fired when the bot receives a channel's user-list.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".USER_MODE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>USER_MODE</b>
+					
+					</div>
+					<div class="description">
+						Fired when a user mode is set.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".VERSION"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>VERSION</b>
+					
+					</div>
+					<div class="description">
+						Fired when the bot receives a CTCP TIME commmand.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".VOICE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Event.</span><b>VOICE</b>
+					
+					</div>
+					<div class="description">
+						Fired when someone is given voice.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://www.jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 2.0.1 on Fri Sep 05 2008 23:06:35 GMT-0500 (CDT)
+		</div>
+	</body>
+</html>
