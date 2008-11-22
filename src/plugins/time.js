@@ -20,7 +20,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var msg = args[args.length-1].toLowerCase();
 
 	// Only respond to "time" messages.
-	if(msg.substring(0, 4) === "time") {
+	if(msg === "time" || msg.substring(0, 5) === "time ") {
 		msg = Util.trim(msg.substring(4));
 		var date = new Date();
 
