@@ -38,7 +38,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 		if(nick === "clear") {
 			var nick = Util.trim(msg);
 
-			if(tell.messageMap[channel][nick] === undefined || tell.messageMap[channel][nick].length === 0) {
+			if(tell.messageMap[channel] === undefined || tell.messageMap[channel][nick] === undefined || tell.messageMap[channel][nick].length === 0) {
 				bot.sendMessage(channel, "There are no messages queued for " + nick + ", " + sender);
 			} else {
 				var messages = tell.messageMap[channel][nick];
@@ -59,6 +59,9 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			if(nick === (bot.getNick() + "")) {
 				bot.sendMessage(channel, tell.replies[Math.min(tell.replies.length - 1, Math.floor(Math.random() * tell.replies.length))]);
 			} else if(Util.trim(msg) !==  "") {
+				if(!tell.messageMap[channel]) {
+					tell.messageMap[channel] = {};
+				}
 				if(!tell.messageMap[channel][nick]) {
 					tell.messageMap[channel][nick] = [];
 				}
