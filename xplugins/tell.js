@@ -83,7 +83,7 @@ core.registerUnrestrictedPlugin(Event.MESSAGE, function(bot, event, args, priv) 
 			}
 		}
 		delete tell.messageMap[sender];
-		IO.writeObject("tellplugin");
+		IO.writeObject("tellplugin", tell.messageMap);
 	}
 }, "tell");
 
