@@ -136,7 +136,7 @@ IO.writeFile = function(path, contents, append) {
 /**
  * Checks if the given file exists.
  *
- * @since 2.0.2
+ * @since 2.0.3
  * @param {string} path The path to the file being checked.
  * @returns <code>true</code> if it exists, <code>false</code> otherwise.
  */
@@ -202,7 +202,7 @@ IO.writeObject = function(name, object, funct, tabin) {
 /**
  * Checks if the given object file exists.
  *
- * @since 2.0.2
+ * @since 2.0.3
  * @param {string} name The name of the object file being checked.
  * @returns <code>true</code> if it exists, <code>false</code> otherwise.
  */
