@@ -169,7 +169,7 @@ function ScriptBotCore() {
 		// Set the bot's nick, and login, and "real name."
 		this.setName(nick);
 		this.setLogin(nick);
-		this.setVersion("@see http://oks.verymad.net/viewvc/ScriptBot/trunk/ for the latest source");
+		this.setVersion("@see http://scriptbot.asmcbain.net for the latest source");
 
 		// Hey, you've got to have a sense of humor.
 		this.setFinger("I'm a bot. How could you possibly get any enjoyment out of poking me?");
