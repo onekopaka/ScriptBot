@@ -19,6 +19,10 @@ tell.replies.push("Sorry, I'm not listening right now ...");
 tell.replies.push("I'd love to, but I've gotta run.");
 tell.replies.push("Bite my shiny metal ass!");
 
+if(IO.objectExists("tellplugin")) {
+	tell.messageMap = IO.readObject("tellplugin");
+}
+
 core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var channel = args[0];
 	var sender = args[1];
@@ -60,6 +64,8 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 				}
 				tell.messageMap[nick].push([sender, msg.replace(/\sI\s/g," they ").replace(/^I\s/,"They ")]);
 				bot.sendMessage(channel, "Okay " + sender + ", I'll tell " + nick + " next time I see them.");
+				print(tell.messageMap);
+				IO.writeObject("tellplugin", tell.messageMap);
 			} else {
 				bot.sendMessage(channel, "You must supply a message, " + sender);
 			}
@@ -78,6 +84,7 @@ core.registerUnrestrictedPlugin(Event.MESSAGE, function(bot, event, args, priv) 
 			}
 		}
 		delete tell.messageMap[sender];
+		IO.writeObject("tellplugin");
 	}
 }, "tell");
 
@@ -85,5 +92,3 @@ core.registerPluginInfo("tell", function(bot, event, args, priv) {
 	var channel = args[0];
 	bot.sendMessage(channel, bot.prefix + "tell [clear] nick [message] - clear removes any queued messages for that nick from the sender. Otherwise it queues non-empty messages to be given to the user when they return.");
 }, "tell");
-
-print(IO.fileExists(IO.path + "plugins/data/" + tell + ".js"));
