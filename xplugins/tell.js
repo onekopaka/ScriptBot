@@ -78,7 +78,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 core.registerUnrestrictedPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var channel = args[0];
 	var sender = args[1];
-	if(tell.messageMap[channel][sender]) {
+	if(tell.messageMap[channel] !== undefined && tell.messageMap[channel][sender]) {
 		var messages = tell.messageMap[channel][sender];
 		for(var i = 0; i < messages.length; i++) {
 			if(messages[i] !== undefined) {
