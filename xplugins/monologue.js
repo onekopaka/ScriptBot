@@ -13,8 +13,8 @@ core.unregisterPlugin("monologue");
 
 // Check all incoming messages.
 core.registerUnrestrictedPlugin(Event.MESSAGE, function(bot, event, args, priv) {
-	if(args[0] !== monologue.nick) {
-		monologue.nick = args[0];
+	if(args[1] !== monologue.nick) {
+		monologue.nick = args[1];
 		monologue.count = 1;
 	} else {
 		monologue.count++;
@@ -23,7 +23,7 @@ core.registerUnrestrictedPlugin(Event.MESSAGE, function(bot, event, args, priv) 
 
 // Check for nick changes, it is still the same person.
 core.registerPlugin(Event.NICK_CHANGE, function(bot, event, args, priv) {
-	if(args[0] === monologue.nick) {
+	if(args[1] === monologue.nick) {
 		monologue.nick = args[args.length - 1];
 	}
 }, "monologue");
