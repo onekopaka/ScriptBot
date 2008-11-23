@@ -579,10 +579,14 @@ function ScriptBotCore() {
 			if(functs !== undefined && functs.length > 0) {
 				for(var i in functs) {
 					if(i !== "unhandled") {
-						// Re-fire the event, pass an empty array if no arguments.
-						var value = functs[i](this, type+"", args || []);
-						// Has the event been handled?
-						if(!handled && value) handled = true;
+						try {
+							// Re-fire the event, pass an empty array if no arguments.
+							var value = functs[i](this, type+"", args || []);
+							// Has the event been handled?
+							if(!handled && value) handled = true;
+						} catch(e) {
+							print("ERROR: " + e);
+						}
 					}
 				}
 			}
@@ -633,8 +637,12 @@ function ScriptBotCore() {
 				var functs = unrestrictedHandlers[type];
 				if(functs !== undefined && functs.length > 0) {
 					for(var i in functs) {
-						// Re-fire the event, pass an empty array if no arguments.
-						functs[i](this, type+"", args || []);
+						try {
+							// Re-fire the event, pass an empty array if no arguments.
+							functs[i](this, type+"", args || []);
+						} catch(e) {
+							print("ERROR: " + e);
+						}
 					}
 				}
 
@@ -656,11 +664,19 @@ function ScriptBotCore() {
 						// Send to handler, if there is one.
 						var handler = informationHandlers[args[args.length-1].split(/\s+/g)[0]];
 						if(handler) {
-							handler(this, type+"", args, priv);
+							try {
+								handler(this, type+"", args, priv);
+							} catch(e) {
+								print("ERROR: " + e);
+							}
 						} else {
 							var handled = false;
 							if(unhandledInfoHandler) {
-								handled = unhandledInfoHandler(this, type+"", args, priv);
+								try {
+									handled = unhandledInfoHandler(this, type+"", args, priv);
+								} catch(e) {
+									print("ERROR: " + e);
+								}
 							}
 
 							// Do the default action if they don't handle it.
@@ -679,10 +695,14 @@ function ScriptBotCore() {
 						if(functs !== undefined && functs.length > 0) {
 							for(var i in functs) {
 								if(i !== "unhandled") {
-									// Re-fire the event, pass an empty array if no arguments.
-									var value = functs[i](this, type+"", args || []);
-									// Has the event been handled?
-									if(!handled && value) handled = true;
+									try {
+										// Re-fire the event, pass an empty array if no arguments.
+										var value = functs[i](this, type+"", args || []);
+										// Has the event been handled?
+										if(!handled && value) handled = true;
+									} catch(e) {
+										print("ERROR: " + e);
+									}
 								}
 							}
 						}
