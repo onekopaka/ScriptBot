@@ -134,6 +134,17 @@ IO.writeFile = function(path, contents, append) {
 };
 
 /**
+ * Checks if the given file exists.
+ *
+ * @since 2.0.2
+ * @param {string} path The path to the file being checked.
+ * @returns <code>true</code> if it exists, <code>false</code> otherwise.
+ */
+IO.fileExists = function(path) {
+	return Util.isTrue((new java.io.File(path)).exists());
+};
+
+/**
  * Returns an object previously saved via {@link #writeObject}.
  *
  * @since 2.0.1
@@ -186,4 +197,15 @@ IO.writeObject = function(name, object, funct, tabin) {
 	}
 	IO.writeFile(IO.path + "plugins/data/" + name + ".js", output);
 	return (output);
+};
+
+/**
+ * Checks if the given object file exists.
+ *
+ * @since 2.0.2
+ * @param {string} name The name of the object file being checked.
+ * @returns <code>true</code> if it exists, <code>false</code> otherwise.
+ */
+IO.objectExists = function(name) {
+	return Util.isTrue((new java.io.File(IO.path + "plugins/data/" + name + ".js")).exists());
 };

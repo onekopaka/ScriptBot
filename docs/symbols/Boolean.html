@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - Util.Timer</title>
+		<title>JsDoc Reference - Boolean</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -216,54 +216,34 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class Util.Timer
+				Built-In Namespace Boolean
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			<p class="description">
 				
 			
-				Timer is a simplified timer object that makes it easier to handle timed tasks withoutimporting an Java classes directly. It offers simple ways to stop, start, and changethe function called when the timer is fired. The timer fires at the set interval.
 				
 				
-					<br /><i>Defined in: </i> &lt;ScriptBot/trunk/src/app\timer.js&gt;.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Util.Timer.">
-				<caption>Class Summary</caption>
-				<thead>
-					<tr>
-						<th scope="col">Constructor Attributes</th>
-						<th scope="col">Constructor Name and Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="attributes">&nbsp;</td>
-						<td class="nameDescription" >
-							<div class="fixedFont">
-								<b><a href="../symbols/Util.Timer.html#constructor">Util.Timer</a></b>()
-							</div>
-							<div class="description">Creates a default Timer object.</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			
 
 <!-- ============================== properties summary ===================== -->
 			
+
+<!-- ============================== methods summary ======================== -->
+			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class Util.Timer.">
-					<caption>Field Summary</caption>
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Boolean.">
+					<caption>Method Summary</caption>
 					<thead>
 						<tr>
-							<th scope="col">Field Attributes</th>
-							<th scope="col">Field Name and Description</th>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -271,30 +251,9 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/Util.Timer.html#interval">interval</a></b>
+								<div class="fixedFont"><b><a href="../symbols/Boolean.html#toJSON">toJSON</a></b>(key)
 								</div>
-								<div class="description">The interval of the timer in seconds; the amount of time between each call to <a href="#onTimerFired">#onTimerFired</a>.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/Util.Timer.html#onTimerFired">onTimerFired</a></b>
-								</div>
-								<div class="description">The function called when the timer fires (the timer's interval is up).</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/Util.Timer.html#ticking">ticking</a></b>
-								</div>
-								<div class="description"><code>true</code> if the timer is currently active, <code>false</code> otherwise.</div>
+								<div class="description"></div>
 							</td>
 						</tr>
 					
@@ -305,155 +264,57 @@ ul.inheritsList
 				
 			
 
-<!-- ============================== methods summary ======================== -->
-			
-
 <!-- ============================== constructor details ==================== -->		
-			
-			<div class="details"><a name="constructor"> </a>
-				<div class="sectionTitle">
-					Class Detail
-				</div>
-				
-				<div class="fixedFont">
-						<b>Util.Timer</b>()
-				</div>
-				
-				<div class="description">
-					Creates a default Timer object.
-					<br /><i>Author: </i>AMcBain, 2008.
-				</div>
-				
-				
-				
-				
-					
-					
-					
-						<dl class="detailList">
-						<dt class="heading">Since:</dt>
-							<dd>2.0.1</dd>
-						</dl>
-					
-					
-					
-					
-					
-
-			</div>
 			
 
 <!-- ============================== field details ========================== -->		
 			
-				<div class="sectionTitle">
-					Field Detail
-				</div>
-				
-					<a name="interval"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{number}</span>
-					<b>interval</b>
-					
-					</div>
-					<div class="description">
-						The interval of the timer in seconds; the amount of time between each call to <a href="#onTimerFired">#onTimerFired</a>.
-						
-						
-					</div>
-					
-					
-
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Since:</dt>
-								<dd>2.0.1</dd>
-							</dl>
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Default Value:</dt>
-							<dd>
-								1
-							</dd>
-							</dl>
-						
-
-					<hr />
-				
-					<a name="onTimerFired"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{Function}</span>
-					<b>onTimerFired</b>
-					
-					</div>
-					<div class="description">
-						The function called when the timer fires (the timer's interval is up).
-						
-						
-					</div>
-					
-					
-
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Since:</dt>
-								<dd>2.0.1</dd>
-							</dl>
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Default Value:</dt>
-							<dd>
-								undefined
-							</dd>
-							</dl>
-						
-
-					<hr />
-				
-					<a name="ticking"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{boolean}</span>
-					<b>ticking</b>
-					
-					</div>
-					<div class="description">
-						<code>true</code> if the timer is currently active, <code>false</code> otherwise.
-						
-						
-					</div>
-					
-					
-
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Since:</dt>
-								<dd>2.0.1</dd>
-							</dl>
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Default Value:</dt>
-							<dd>
-								false
-							</dd>
-							</dl>
-						
-
-					
-				
-			
 
 <!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="toJSON"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>toJSON</b>(key)
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> &lt;ScriptBot/trunk/src/app\JSON.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>key</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
 			
 			
 			<hr />
@@ -462,7 +323,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://www.jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 2.0.1 on Sun Nov 23 2008 01:13:56 GMT-0600 (CST)
+			Documentation generated by <a href="http://www.jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 2.0.1 on Sun Nov 23 2008 01:13:55 GMT-0600 (CST)
 		</div>
 	</body>
 </html>
