@@ -64,7 +64,6 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 				}
 				tell.messageMap[nick].push([sender, msg.replace(/\sI\s/g," they ").replace(/^I\s/,"They ")]);
 				bot.sendMessage(channel, "Okay " + sender + ", I'll tell " + nick + " next time I see them.");
-				print(tell.messageMap);
 				IO.writeObject("tellplugin", tell.messageMap);
 			} else {
 				bot.sendMessage(channel, "You must supply a message, " + sender);
