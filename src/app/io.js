@@ -191,7 +191,7 @@ IO.writeObject = function(name, object, funct, tabin) {
 	// Create and write the object.
 	var output = "{}";
 	try {
-		JSON.stringfy(object);
+		output = JSON.stringify(object);
 	} catch(e) {
 		// We know.
 	}
