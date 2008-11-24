@@ -22,6 +22,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 		if(msg !== "" && msg !== "reload") {
 			try {
 				IO.include("plugins" + IO.slash + msg + ".js");
+				bot.sendMessage(args[0], args[1] + ": Success!");
 			} catch(e) {
 				bot.sendMessage(args[0], "Reloading plugin failed. Check your spelling, or maybe the plugin doesn't exist.");
 			}
