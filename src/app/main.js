@@ -16,6 +16,7 @@ if(config.plugins) {
 	for(var i = 0; i < config.plugins.length; i++) {
 		try {
 			IO.include("plugins/" + config.plugins[i] + ".js");
+			print("'" + config.plugins[i] + "' loaded");
 		} catch(e) {
 			print("'" + config.plugins[i] + "' failed to load with this error:");
 			print(e);
