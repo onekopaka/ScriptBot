@@ -73,5 +73,3 @@ IO.include("app/util.js");
 IO.include("app/timer.js");
 IO.include("app/scriptbot.js");
 IO.include("app/main.js");
-//Hate to be adding bulk, but it will get used.
-IO.include("xml2array.js");
