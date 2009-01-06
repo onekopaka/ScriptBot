@@ -14,7 +14,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 		var message = "Can't found that specific arguments";
 		// Grab a text from that url if it is match
 		for (var i = 0; i < get_content.length && !message; i++) {
-			if (get_content[i].match(/^\sclass="refpurpose dc-title"/)) {
+			if (get_content[i].match(/^\sclass="refpurpose"/)) {
 				messsage = get_content[i].substring(get_content[i].indexOf(">") + 1, get_content[i].indexOf("<"));
 				message = message.substring(0, msg[1].length) + " -" + message.substring(msg[1].length + 4);
 			}
