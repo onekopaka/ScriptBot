@@ -1,5 +1,5 @@
 {
-	"info": "This is the config file for ScriptBot. Please visit http://scriptbot.asmcbain.net/examples.xhtml",
+	"info": "This is the config file for ScriptBot. Please visit http://scriptbot.oks.kicks-ass.net/examples.xhtml",
 	"info": "for more details on how to use this config file.",
 
 	"name": "ScriptBot",
