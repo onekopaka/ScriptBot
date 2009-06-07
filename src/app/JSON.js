@@ -1,6 +1,6 @@
 /*
     http://www.JSON.org/json2.js
-    2008-09-01
+    2009-04-16
 
     Public Domain.
 
@@ -57,9 +57,9 @@
             serialized. If your method returns undefined, then the member will
             be excluded from the serialization.
 
-            If the replacer parameter is an array of strings, then it will be used to
-            select the members to be serialized. It filters the results such
-            that only members with keys listed in the replacer array are
+            If the replacer parameter is an array of strings, then it will be
+            used to select the members to be serialized. It filters the results
+            such that only members with keys listed in the replacer array are
             stringified.
 
             Values that do not have JSON representations, such as undefined or
@@ -148,10 +148,10 @@
 
 /*global JSON */
 
-/*members "", "\b", "\t", "\n", "\f", "\r", "\"", JSON, "\\", call,
-    charCodeAt, getUTCDate, getUTCFullYear, getUTCHours, getUTCMinutes,
-    getUTCMonth, getUTCSeconds, hasOwnProperty, join, lastIndex, length,
-    parse, propertyIsEnumerable, prototype, push, replace, slice, stringify,
+/*members "", "\b", "\t", "\n", "\f", "\r", "\"", JSON, "\\", apply,
+    call, charCodeAt, getUTCDate, getUTCFullYear, getUTCHours,
+    getUTCMinutes, getUTCMonth, getUTCSeconds, hasOwnProperty, join,
+    lastIndex, length, parse, prototype, push, replace, slice, stringify,
     test, toJSON, toString, valueOf
 */
 
@@ -188,7 +188,7 @@ if (!this.JSON) {
     }
 
     var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
-        escapeable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+        escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
         gap,
         indent,
         meta = {    // table of character substitutions
@@ -210,14 +210,12 @@ if (!this.JSON) {
 // Otherwise we must also replace the offending characters with safe escape
 // sequences.
 
-        escapeable.lastIndex = 0;
-        return escapeable.test(string) ?
-            '"' + string.replace(escapeable, function (a) {
+        escapable.lastIndex = 0;
+        return escapable.test(string) ?
+            '"' + string.replace(escapable, function (a) {
                 var c = meta[a];
-                if (typeof c === 'string') {
-                    return c;
-                }
-                return '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+                return typeof c === 'string' ? c :
+                    '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
             }) + '"' :
             '"' + string + '"';
     }
@@ -287,12 +285,11 @@ if (!this.JSON) {
             gap += indent;
             partial = [];
 
-// If the object has a dontEnum length property, we'll treat it as an array.
+// Is the value an array?
 
-            if (typeof value.length === 'number' &&
-                    !value.propertyIsEnumerable('length')) {
+            if (Object.prototype.toString.apply(value) === '[object Array]') {
 
-// The object is an array. Stringify every element. Use null as a placeholder
+// The value is an array. Stringify every element. Use null as a placeholder
 // for non-JSON values.
 
                 length = value.length;
@@ -478,4 +475,4 @@ replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
             throw new SyntaxError('JSON.parse');
         };
     }
-})();
+}());
