@@ -7,7 +7,7 @@ core.unregisterPluginByEvent(Event.MESSAGE, "weather");
 core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var msg = args[args.length-1].split(/\s+/g);
 	if(msg[0] === "weather" && msg.length > 1) {
-		// This build us a URL.
+		// This builds us a URL.
 		url = "http://oks.verymad.net/~onekopaka/phpweather/scriptbot.php?icao=" + msg[1].toUpperCase();
 		var report = IO.fetchURL(url, true);
 		var output = "";

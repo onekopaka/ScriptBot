@@ -21,7 +21,7 @@ var window = this;
 	
 	window.__defineSetter__("location", function(url){
 			curLocation = new java.net.URL( curLocation, url );
-			window.document = IO.fetchURL(url);
+			window.document = IO.fetchURL(url, true);
 			var event = document.createEvent();
 			event.initEvent("load");
 			window.dispatchEvent( event );
@@ -687,3 +687,5 @@ var window = this;
 		status: 0
 	};
 })();
+
+print("loaded DOM environment.")
