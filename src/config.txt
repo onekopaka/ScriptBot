@@ -6,7 +6,7 @@
 	"password": "",
 	"prefix": "@",
 
-	"server": "irc.mozilla.org",
+	"server": "oks.verymad.net",
 	"channels": ["#bots"],
 
 	"plugins": ["quit","time","prefix","reload","unhandled"]

@@ -71,4 +71,5 @@ var Util = {
 	verifyTarget: function(target, message) {
 		return ((message+"").match(new RegExp("^" + target + "\\W?\\s?")) != null);
 	}
+	
 }

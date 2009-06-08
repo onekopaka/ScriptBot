@@ -13,7 +13,7 @@ var window = this;
 
 	window.navigator = {
 		get userAgent(){
-			return "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1.3) Gecko/20070309 Firefox/2.0.0.3";
+			return "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.2a1pre) Gecko/20090607 Firefox/3.6a1pre";
 		}
 	};
 	
