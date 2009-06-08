@@ -7,7 +7,7 @@
 	"prefix": "@",
 
 	"server": "irc.mozilla.org",
-	"channels": ["#bots-test"],
+	"channels": ["#bots"],
 
-	"plugins": ["quit","time","prefix","reload"]
+	"plugins": ["quit","time","prefix","reload","unhandled"]
 }
