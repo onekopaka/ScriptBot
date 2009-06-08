@@ -3,11 +3,11 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var msg = args[args.length-1].split(/\s+/g);
 	if (msg[0] === "tropical") {
 		// Get tropical weather XML loaded into DOM
-		window.DOMDocument('http://rss.wunderground.com/auto/rss_full/tropical/index.xml?basin=at');
-		if(document)
+		xml = new XML(IO.fetchURL("http://rss.wunderground.com/auto/rss_full/tropical/index.xml?basin=at", true));
+		if(xml)
 		{
 			// Find if there's a storm.
-			stormstatus = window.document.getElementsByTagName("description");
+			stormstatus = xml.getElementsByTagName("description");
 			// Clean up message.
 			message = stormstatus[1].innerHTML.replace(/<\/?[^>]+(>|$)/g,"");
 			// Display it on the channel
