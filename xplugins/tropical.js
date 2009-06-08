@@ -4,7 +4,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	if (msg[0] === "tropical") {
 		// Get tropical weather XML URL
 		var get_content = IO.fetchURL('http://rss.wunderground.com/auto/rss_full/tropical/index.xml?basin=at');
-		var message = '';
+		var message = 'Something is wrong here. Please recheck the source code';
 		// Grab a text from that url if it is match
 		for (var i = 0; i < get_content.length && !message; i++) {
 			message = get_content.match(/<description><![CDATA[(.*)]]<\/description>/)[1].replace(/<\/?[^>]+(>|$)/g,"");
