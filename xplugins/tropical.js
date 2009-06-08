@@ -5,7 +5,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 		// Get tropical weather XML loaded into DOM
 		window.setLocation = 'http://rss.wunderground.com/auto/rss_full/tropical/index.xml?basin=at';
 		// Find if there's a storm.
-		stormstatus = document.getElementsByTagName("description");
+		stormstatus = window.document.getElementsByTagName("description");
 		// Clean up message.
 		message = stormstatus[1].innerHTML.replace(/<\/?[^>]+(>|$)/g,"");
 		// Display it on the channel

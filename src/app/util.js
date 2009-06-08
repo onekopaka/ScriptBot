@@ -71,4 +71,15 @@ var Util = {
 	verifyTarget: function(target, message) {
 		return ((message+"").match(new RegExp("^" + target + "\\W?\\s?")) != null);
 	},
+	
+	/**
+	 * Strips HTML-like tags from a string.
+	 *
+	 * @since 2.0.4
+	 * @param {string} dirtystring The string to strip of HTML-like tags.
+	 * @returns a string clean of all HTML-like tags.
+	 */
+	stripHTML: function(dirtystring) {
+		return dirtystring.replace(/<\/?[^>]+(>|$)/g,"");
+	}
 }

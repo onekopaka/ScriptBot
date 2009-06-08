@@ -20,17 +20,11 @@ var window = this;
 	var curLocation = (new java.io.File("./")).toURL();
 	
 	window.__defineSetter__("location", function(url){
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", url);
-		xhr.onreadystatechange = function(){
 			curLocation = new java.net.URL( curLocation, url );
-			window.document = xhr.responseXML;
-
+			window.document = IO.fetchURL(url);
 			var event = document.createEvent();
 			event.initEvent("load");
 			window.dispatchEvent( event );
-		};
-		xhr.send();
 	});
 	
 	window.__defineGetter__("location", function(url){
