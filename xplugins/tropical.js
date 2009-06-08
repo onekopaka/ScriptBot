@@ -10,7 +10,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			message = get_content.match(/<description><![CDATA[(.*)]]<\/description>/)[1].replace(/<\/?[^>]+(>|$)/g,"");
 		}
 		// Display it on the channels
-		bot.sendMessage(message);
+		bot.sendMessage(args[0], args[1] + ": " + message);
 	}
 	return true;
 }, "tropical");
