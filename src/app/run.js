@@ -73,4 +73,3 @@ IO.include("app/util.js");
 IO.include("app/timer.js");
 IO.include("app/scriptbot.js");
 IO.include("app/main.js");
-IO.include("app/domenv.js");
