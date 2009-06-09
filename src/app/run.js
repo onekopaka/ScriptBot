@@ -71,6 +71,6 @@ IO.include("app/io.js");
 IO.include("app/JSON.js");
 IO.include("app/util.js");
 IO.include("app/timer.js");
+IO.include("app/dom.js");
 IO.include("app/scriptbot.js");
-IO.include("app/dom.js")
 IO.include("app/main.js");
