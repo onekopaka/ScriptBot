@@ -233,6 +233,74 @@ ul.inheritsList
 
 <!-- ============================== properties summary ===================== -->
 			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class _global_.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#after">after</a></b>
+								</div>
+								<div class="description">Creates an advice after the defined point-cut.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#around">around</a></b>
+								</div>
+								<div class="description">Creates an advice 'around' the defined point-cut.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#before">before</a></b>
+								</div>
+								<div class="description">Creates an advice before the defined point-cut.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#introduction">introduction</a></b>
+								</div>
+								<div class="description">Creates an introduction on the defined point-cut.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#setup">setup</a></b>
+								</div>
+								<div class="description">Configures global options.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
 
 <!-- ============================== methods summary ======================== -->
 			
@@ -251,9 +319,54 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#aspect">aspect</a></b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/_global_.html#createBot">createBot</a></b>()
 								</div>
 								<div class="description">Creates and returns a new ScriptBot instance.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#Envjs">Envjs</a></b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#fn">fn</a></b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#html2dom">html2dom</a></b>(html, doc)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#html2xml">html2xml</a></b>(html)
+								</div>
+								<div class="description"></div>
 							</td>
 						</tr>
 					
@@ -263,11 +376,192 @@ ul.inheritsList
 				
 				
 			
+<!-- ============================== events summary ======================== -->
+			
 
 <!-- ============================== constructor details ==================== -->		
 			
 
 <!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="after"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array<Function>}</span>
+					<b>after</b>
+					
+					</div>
+					<div class="description">
+						Creates an advice after the defined point-cut. The advice will be executed after the point-cut method 
+has completed execution successfully, and will receive one parameter with the result of the execution.
+This function returns an array of weaved aspects (Function).
+						
+							<br />
+							<i>Defined in: </i> &lt;/ScriptBot/trunk/src/app/dom.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">jQuery.aop.after( {target: window, method: 'MyGlobalMethod'}, function(result) { alert('Returned: ' + result); } );</pre>
+					
+					<pre class="code">jQuery.aop.after( {target: String, method: 'indexOf'}, function(index) { alert('Result found at: ' + index + ' on:' + this); } );</pre>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="around"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array<Function>}</span>
+					<b>around</b>
+					
+					</div>
+					<div class="description">
+						Creates an advice 'around' the defined point-cut. This type of advice can control the point-cut method execution by calling
+the functions '.proceed()' on the 'invocation' object, and also, can modify the arguments collection before sending them to the function call.
+This function returns an array of weaved aspects (Function).
+Matches all global methods starting with 'Get' and followed by a number.
+						
+							<br />
+							<i>Defined in: </i> &lt;/ScriptBot/trunk/src/app/dom.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">jQuery.aop.around( {target: window, method: 'MyGlobalMethod'}, function(invocation) {
+               alert('# of Arguments: ' + invocation.arguments.length); 
+               return invocation.proceed(); 
+         } );</pre>
+					
+					<pre class="code">jQuery.aop.around( {target: String, method: 'indexOf'}, function(invocation) { 
+               alert('Searching: ' + invocation.arguments[0] + ' on: ' + this); 
+               return invocation.proceed(); 
+         } );</pre>
+					
+					<pre class="code">jQuery.aop.around( {target: window, method: /Get(\d+)/}, function(invocation) {
+               alert('Executing ' + invocation.method); 
+               return invocation.proceed(); 
+         } );</pre>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="before"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array<Function>}</span>
+					<b>before</b>
+					
+					</div>
+					<div class="description">
+						Creates an advice before the defined point-cut. The advice will be executed before the point-cut method 
+but cannot modify the behavior of the method, or prevent its execution.
+This function returns an array of weaved aspects (Function).
+						
+							<br />
+							<i>Defined in: </i> &lt;/ScriptBot/trunk/src/app/dom.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">jQuery.aop.before( {target: window, method: 'MyGlobalMethod'}, function() { alert('About to execute MyGlobalMethod'); } );</pre>
+					
+					<pre class="code">jQuery.aop.before( {target: String, method: 'indexOf'}, function(index) { alert('About to execute String.indexOf on: ' + this); } );</pre>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="introduction"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array<Function>}</span>
+					<b>introduction</b>
+					
+					</div>
+					<div class="description">
+						Creates an introduction on the defined point-cut. This type of advice replaces any existing methods with the same
+name. To restore them, just unweave it.
+This function returns an array with only one weaved aspect (Function).
+						
+							<br />
+							<i>Defined in: </i> &lt;/ScriptBot/trunk/src/app/dom.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">jQuery.aop.introduction( {target: window, method: 'MyGlobalMethod'}, function(result) { alert('Returned: ' + result); } );</pre>
+					
+					<pre class="code">jQuery.aop.introduction( {target: String, method: 'log'}, function() { alert('Console: ' + this); } );</pre>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setup"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Void}</span>
+					<b>setup</b>
+					
+					</div>
+					<div class="description">
+						Configures global options.
+Disable regex matching.
+						
+							<br />
+							<i>Defined in: </i> &lt;/ScriptBot/trunk/src/app/dom.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">jQuery.aop.setup( { regexMatch: false } );</pre>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
 			
 
 <!-- ============================== method details ========================= -->		
@@ -276,10 +570,38 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
+					<a name="aspect"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>aspect</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> &lt;/ScriptBot/trunk/src/app/dom.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
 					<a name="createBot"> </a>
 					<div class="fixedFont">
 					
-					<span class="light">{<a href="../symbols/ScriptBotCore.html#constructor">ScriptBotCore</a>}</span>
+					<span class="light">{<a href="../symbols/ScriptBotCore.html">ScriptBotCore</a>}</span>
 					<b>createBot</b>()
 					
 					</div>
@@ -287,7 +609,7 @@ ul.inheritsList
 						Creates and returns a new ScriptBot instance.
 						
 							<br />
-							<i>Defined in: </i> &lt;ScriptBot/trunk/src/app\scriptbot.js&gt;.
+							<i>Defined in: </i> &lt;/ScriptBot/trunk/src/app/scriptbot.js&gt;.
 						
 						
 					</div>
@@ -315,17 +637,161 @@ ul.inheritsList
 						
 						
 
+					<hr />
+				
+					<a name="Envjs"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>Envjs</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> &lt;/ScriptBot/trunk/src/app/dom.js&gt;.
+						
+						<br /><i>Author: </i>thatcher.
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="fn"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>fn</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> &lt;/ScriptBot/trunk/src/app/dom.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="html2dom"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>html2dom</b>(html, doc)
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> &lt;/ScriptBot/trunk/src/app/dom.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>html</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>doc</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="html2xml"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>html2xml</b>(html)
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> &lt;/ScriptBot/trunk/src/app/dom.js&gt;.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>html</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
 					
 				
 			
 			
+<!-- ============================== event details ========================= -->		
+			
+			
 			<hr />
 		</div>
+
 		
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://www.jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 2.0.1 on Sun Nov 23 2008 02:52:37 GMT-0600 (CST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.1.1 on Sun Jun 21 2009 19:34:26 GMT-0700 (PDT)
 		</div>
 	</body>
 </html>
