@@ -73,6 +73,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			}
 		}
 	}
+    return true;
 }, "tell");
 
 core.registerUnrestrictedPlugin(Event.MESSAGE, function(bot, event, args, priv) {
