@@ -1,13 +1,13 @@
 {
 	"info": "This is the config file for ScriptBot.",
-	"info": "Please visit http://scriptbot.oks.kicks-ass.net/examples.xhtml",
+	"info": "Please visit http://scriptbot.theoks.net/examples.xhtml",
 	"info": "for more details on how to use this config file.",
 
 	"name": "ScriptBot",
 	"password": "",
 	"prefix": "@",
 
-	"server": "irc.mozilla.org",
+	"server": "theoks.net",
 	"channels": ["#bots"],
 
 	"plugins": ["quit","time","prefix","reload","unhandled"]
