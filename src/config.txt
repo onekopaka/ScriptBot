@@ -6,6 +6,7 @@
 	"name": "ScriptBot",
 	"password": "",
 	"prefix": "@",
+	"joinOnInvite": true,
 
 	"server": "theoks.net",
 	"channels": ["#bots"],

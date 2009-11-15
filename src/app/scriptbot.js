@@ -745,6 +745,10 @@ function ScriptBotCore() {
 		this.fireEvent(Event.FINGER, [sourceNick+"", sourceLogin+"", sourceHostname+"", target+""]);
 	}
 	this.onInvite = function(targetNick, sourceNick, sourceLogin, sourceHostname, channel) {
+		if(config.joinOnInvite == true) {
+			this.joinChannel(channel);	
+		}
+		
 		this.fireEvent(Event.INVITE, [targetNick+"", sourceNick+"", sourceLogin+"", sourceHostname+"", channel+""]);
 	}
 	this.onJoin = function(channel, sender, login, hostname) {
