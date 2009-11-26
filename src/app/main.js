@@ -33,9 +33,13 @@ try {
 	if(config.channels.length === 0) throw "Must specify at least one channel to join IRC. Check config file.";
 	if(config.prefix) core.prefix = config.prefix;
 
+	core.getBot().sendMessage("NickServ", "IDENTIFY "+config.nickServPass)
+	
 	// Join IRC.
 	core.initialize(config.name, config.server);
-
+	
+	core.getBot().sendMessage("NickServ", "IDENTIFY "+config.nickServPass)
+	
 	// Join any specified channels.
 	var keys = config.keys || [];
 	for(var i = 0; i < config.channels.length; i++) {
@@ -43,8 +47,8 @@ try {
 	}
 } catch(e) {
 	print(e);
-	print("Program terminated.");
-	System.exit(0); // Just in case.
+	print("Program terminated. You May Close Your Window.");
+	pause;
 }
 
 

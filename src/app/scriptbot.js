@@ -730,6 +730,7 @@ function ScriptBotCore() {
 	}
 	this.onConnect = function() {
 		this.fireEvent(Event.CONNECT, []);
+		
 	}
 	this.onDeop = function(channel, sourceNick, sourceLogin, sourceHostname, recipient) {
 		this.fireEvent(Event.DEOP, [channel+"", sourceNick+"", sourceLogin+"", sourceHostname+"", recipient+""]);
@@ -753,10 +754,6 @@ function ScriptBotCore() {
 	}
 	this.onJoin = function(channel, sender, login, hostname) {
 		this.fireEvent(Event.JOIN, [channel+"", sender+"", login+"", hostname+""]);
-		if(config.nickServPass.length!="")
-		{
-			this.sendMessage("NickServ", "IDENTIFY "+config.nickServPass);
-		}
 	}
 	this.onKick = function(channel, kickerNick, kickerLogin, kickerHostname, recipientNick, reason) {
 		this.fireEvent(Event.KICK, [channel+"", kickerNick+"", kickerLogin+"", kickerHostname+"", recipientNick+""]);

@@ -9,7 +9,7 @@
 	"joinOnInvite": true,
 
 	"server": "theoks.net",
-	"channels": ["#bots"],
+	"channels": ["#bots","#micp"],
 
 	"plugins": ["quit","time","prefix","reload","unhandled","gui"],
 
