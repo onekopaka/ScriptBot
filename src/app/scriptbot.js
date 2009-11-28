@@ -182,10 +182,17 @@ function ScriptBotCore() {
 			log("Attempting to join '" + ircServer + "'", SERVER);
 
 			// Attempt to connect to the server.
-			if(password === "") {
-				this.connect(ircServer);
-			} else {
-				this.connect(ircServer, 6667, password);
+			if(config.port == 6667)
+			{
+				if(password === "") {
+					this.connect(ircServer);
+				} else {
+					this.connect(ircServer, 6667, password);
+				}
+			}
+			else
+			{
+				this.connect(ircServer, config.port, password);
 			}
 
 			log("Connection was successful.", SERVER, true);

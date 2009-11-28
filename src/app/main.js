@@ -32,17 +32,16 @@ try {
 	if(!config.channels) throw "Cannot connect to IRC, no bot name listed. Check config file.";
 	if(config.channels.length === 0) throw "Must specify at least one channel to join IRC. Check config file.";
 	if(config.prefix) core.prefix = config.prefix;
-
-	core.getBot().sendMessage("NickServ", "IDENTIFY "+config.nickServPass)
 	
 	// Join IRC.
-	core.initialize(config.name, config.server);
+	core.initialize(config.name, config.server, config.channels[0], config.port);
 	
+	// Identify with NickServ
 	core.getBot().sendMessage("NickServ", "IDENTIFY "+config.nickServPass)
 	
 	// Join any specified channels.
 	var keys = config.keys || [];
-	for(var i = 0; i < config.channels.length; i++) {
+	for(var i = 1; i < config.channels.length; i++) {
 		core.getBot().joinChannel(config.channels[i], keys[i] || "");
 	}
 } catch(e) {

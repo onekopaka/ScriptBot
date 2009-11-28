@@ -9,6 +9,8 @@
 	"joinOnInvite": true,
 
 	"server": "theoks.net",
+	"port": 6673,
+
 	"channels": ["#bots"],
 
 	"plugins": ["quit","time","prefix","reload","unhandled"],
