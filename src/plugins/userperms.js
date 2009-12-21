@@ -3,12 +3,12 @@ Title: Scriptbot user permissions script
 Version: 1.1.0.2009.12.20
 Author: Joshua Merrell <joshuamerrell@gmail.com>
 Licensed under GPL.
-
 */
+
 core.unregisterPlugin("userperms");
 var perms = {};
 
-if(IO.objectExists("brain")) 
+if(IO.objectExists("perms")) 
 	{
 	perms = IO.readObject("perms");
 	}
