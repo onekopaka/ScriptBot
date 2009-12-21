@@ -1,13 +1,10 @@
 /*
 Title: Scriptbot Learning script
-Version: 1.2.1.2009.12.10
-(major release. minor release. bugfix. release number
-Changes:It now says "I have no idea what <query> is if there is no key named <query>
+Version: 1.4.1.2009.12.20
+Changes: Errors now handled by errors.js
 Author: Joshua Merrell <joshuamerrell@gmail.com>
 Contributors: Darren VanBuren <onekopaka@gmail.com>
 Licensed under GPL.
-
-KNOWN BUGS: ...none as of the update
 */
 core.unregisterPlugin("learn");
 var brain = {};
@@ -23,6 +20,8 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 
 	var msg = args[args.length-1];
 
+	//take input with <variable> is <key>
+
 	if(msg !== null && msg.length > 0 && msg.search(" is ") > -1 && msg.search("what is") <0 && args[1] != config.name)
 	{
 
@@ -30,12 +29,13 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 		tempBrain[1] = msg.substring(msg.indexOf("is ")+3, msg.length).toLowerCase();
 		if(brain[tempBrain[0]].indexOf("+islocked") > 1 && args[1] != "Eggbertx")
 		{
-			if(args[1] != "Eggbertx" || args[1] != "onekopaka_laptop")
-			{
-			bot.sendMessage(args[0], "You do not have the permissions to edit this key")
-			}
+			if(perms[args[1]] < 1)
+				{
+				bot.sendMessage(args[0], errors[6])
+				}
 		}
-		else {
+		else
+			{
 			brain[tempBrain[0]] = tempBrain[1];
 			IO.writeObject("brain", brain);
 			//bot.sendMessage(args[0], "brain[tempBrain[0]] = " +brain[tempBrain[0]]); //for debugging 
@@ -44,25 +44,27 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			tempDescription = tempDescription.replace("+islocked", "");
 			bot.sendMessage(args[0], "I now know that " + tempBrain[0] + " is " + tempDescription);
 			
+			}
+	
 		}
-	
-	}
-	
+
 
 	if(msg !== null && msg.length > 0 && msg.search("what is") > -1 && args[1] != config.name)
 		{
-		try {
-			
+		try
+			{
 			var lookup = msg.substring(msg.indexOf("is ")+3, msg.length).toLowerCase();
 			lookup = lookup.replace(/[.?!]$/,"");
 			var description = brain[lookup].replace("+islocked", "");
 			bot.sendMessage(args[0], args[1] + ": " + lookup + " is " + description);
 			
+			}
+		catch(e)
+			{
+			bot.sendMessage(args[0], errors[5]);
+			}
 		}
-	catch(e) {
-		bot.sendMessage(args[0], "I have no idea what " +lookup +" is");
-	}
-}
 
 	return true;
 }, "learn");
+
