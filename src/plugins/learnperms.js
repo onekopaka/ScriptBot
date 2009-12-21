@@ -1,6 +1,7 @@
 /*
 Title: Scriptbot Lock script for learn.js
-Version: 1.1.0.2009.12.20
+Version: 1.2.0.2009.12.20
+Changes: Errors now handled by errors.js
 Author: Joshua Merrell <joshuamerrell@gmail.com>
 Licensed under GPL.
 */
@@ -20,16 +21,16 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var msg = args[args.length-1];
 
 	if(msg.search("lock") > -1 && msg.search("lock") < 1)
-	{
+		{
 		try
 			{		
 			var lookup = msg.substring(msg.indexOf("lock ")+5, msg.length).toLowerCase();
 			lookup = lookup.replace(/[.?!]$/,"");
 			var description = brain[lookup].replace("+islocked", "");
 				
-			if(args[1] != "Eggbertx")
+			if(perms[args[1]] < 1)
 				{
-				bot.sendMessage(args[0], "You do not have the permissions to lock this variable");
+				bot.sendMessage(args[0], errors[4]);
 				}
 			
 			else
@@ -43,7 +44,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 
 		catch(e)
 			{
-			bot.sendMessage(args[0], "Error: "+lookup+" does not exist");
+			bot.sendMessage(args[0], errors[3]);
 			}
 
 	}
@@ -56,9 +57,9 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			lookup = lookup.replace(/[.?!]$/,"");
 			var description = brain[lookup].replace("+islocked", "");
 				
-			if(args[1] != "Eggbertx")
+			if(perms[args[1]] < 1)
 				{
-				bot.sendMessage(args[0], "You do not have the permissions to unlock this variable");
+				bot.sendMessage(args[0], errors[2]);
 				}
 			
 			else
@@ -71,7 +72,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 
 		catch(e)
 			{
-			bot.sendMessage(args[0], "Error: " +lookup+ " does not exist");
+			bot.sendMessage(args[0], errors[3]);
 			}
 
 	}
