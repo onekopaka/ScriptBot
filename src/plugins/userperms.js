@@ -1,6 +1,7 @@
 /*
 Title: Scriptbot user permissions script
-Version: 1.1.0.2009.12.20
+Version: 1.2.0.2009.12.20
+Changes: Errors now handled by errors.js
 Author: Joshua Merrell <joshuamerrell@gmail.com>
 Licensed under GPL.
 */
@@ -27,7 +28,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 
 		if(perms[args[1]] < 1)
 			{
-			bot.sendMessage(args[0], "You do not have the permissions to edit " +username +"'s permissions");
+			bot.sendMessage(args[0], errors[0]);
 			}
 
 		else
@@ -43,7 +44,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 		{
 		if(perms[args[1]] < 1)
 			{
-			bot.sendMessage(args[0], "You do not have the permissions to edit " +username +"'s permissions");
+			bot.sendMessage(args[0], errors[0]);
 			}
 
 		else
@@ -69,7 +70,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			}
 		catch(e)
 			{
-			bot.sendMessage(args[0], "The user " +username+ " does not have permissions.");
+			bot.sendMessage(args[0], errors[1]);
 			}
 		}
 
