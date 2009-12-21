@@ -14,7 +14,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 		if(config.bugzillaurl != undefined) {
 			var bugzilla = config.bugzillaurl;
 		} else {
-			var bugzilla = "http://oks.verymad.net/~onekopaka/bugzilla"
+			var bugzilla = "http://theoks.net/bugs"
 		}
 		// Construct URL for xml
 		var url = bugzilla + "/show_bug.cgi?ctype=xml&excludefield=long_desc&id=" + msg[1];
