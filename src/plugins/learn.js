@@ -1,6 +1,6 @@
 /*
 Title: Scriptbot Learning script
-Version: 1.6.2.2009.12.20
+Version: 1.7.2.2009.12.22
 Author: Joshua Merrell <joshuamerrell@gmail.com>
 Contributors: Darren VanBuren <onekopaka@gmail.com>
 Licensed under GPL.
@@ -27,7 +27,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 
 	
 	
-	if(msg !== null && msg.length > 0 && msg.search(" is ") > -1 && msg.search("what is") <0 && args[1] != config.name)
+	if(msg.search("who is ") < 0 && msg.search(" is ") > -1 && msg.search("what is") <0 && args[1] != config.name)
 	{
 		try
 			{
@@ -66,7 +66,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			}
 	}
 
-	if(msg !== null && msg.length > 0 && msg.search("what is") > -1 && args[1] != config.name)
+	else if(msg.search("what is ") > -1)
 		{
 		try
 			{
@@ -82,10 +82,27 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			}
 		}
 
+	else if(msg.search("who is ") > -1)
+		{
+		try
+			{
+			var lookup = msg.substring(msg.indexOf("is ")+3, msg.length).toLowerCase();
+			lookup = lookup.replace(/[.?!]$/,"");
+			var description = brain[lookup].replace("+islocked", "");
+			bot.sendMessage(args[0], args[1] + ": " + lookup + " is " + description);
+			
+			}
+		catch(e)
+			{
+			bot.sendMessage(args[0], "I have no idea who " +lookup+ " is");
+			}
+		}
+
+
 	return true;
 }, "learn");
 
 core.registerPluginInfo("learn", function(bot, event, args, priv) {
-	bot.sendMessage(args[0], bot.prefix + "Used to write variables to brain");
+	bot.sendMessage(args[0], bot.prefix + "Used to write variables to brain, Usage: @<var> is <key> to write to brain.js. @what/who is <var> to read from brain.js");
 });
 
