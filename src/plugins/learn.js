@@ -1,7 +1,6 @@
 /*
 Title: Scriptbot Learning script
-Version: 1.4.1.2009.12.20
-Changes: Errors now handled by errors.js
+Version: 1.6.1.2009.12.20
 Author: Joshua Merrell <joshuamerrell@gmail.com>
 Contributors: Darren VanBuren <onekopaka@gmail.com>
 Licensed under GPL.
@@ -29,9 +28,9 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 		tempBrain[1] = msg.substring(msg.indexOf("is ")+3, msg.length).toLowerCase();
 		if(brain[tempBrain[0]].indexOf("+islocked") > 1 && args[1] != "Eggbertx")
 		{
-			if(perms[args[1]] < 1)
+			if(perms[args[1]] !=1)
 				{
-				bot.sendMessage(args[0], errors[6])
+				bot.sendMessage(args[0], "You don't have the permissions to edit "+tempbrain[0]);
 				}
 		}
 		else
@@ -61,10 +60,14 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			}
 		catch(e)
 			{
-			bot.sendMessage(args[0], errors[5]);
+			bot.sendMessage(args[0], "I have no idea what " +lookup+ " is");
 			}
 		}
 
 	return true;
 }, "learn");
+
+core.registerPluginInfo("learn", function(bot, event, args, priv) {
+	bot.sendMessage(args[0], bot.prefix + "Used to write variables to brain");
+});
 
