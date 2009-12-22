@@ -1,7 +1,6 @@
 /*
 Title: Scriptbot user permissions script
-Version: 1.2.0.2009.12.20
-Changes: Errors now handled by errors.js
+Version: 1.4.0.2009.12.20
 Author: Joshua Merrell <joshuamerrell@gmail.com>
 Licensed under GPL.
 */
@@ -15,20 +14,19 @@ if(IO.objectExists("perms"))
 	}
 else
 	{
-	IO.writeFile("perms", perms);
+	IO.writeObject("perms", perms);
 	}
 
 core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
-
 	var msg = args[args.length-1];
 
 	//give perms
 	if(msg.search("giveperms ") > -1 && args[1] != config.name)
 		{
 
-		if(perms[args[1]] < 1)
+		if(perms[args[1]] !=1)
 			{
-			bot.sendMessage(args[0], errors[0]);
+			bot.sendMessage(args[0], "You don't have the permissions to edit user permissions");
 			}
 
 		else
@@ -42,9 +40,9 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	//no perms for username!!
 	else if(msg.search("removeperms ") > -1 && args[1] != config.name)
 		{
-		if(perms[args[1]] < 1)
+		if(perms[args[1]] !=1)
 			{
-			bot.sendMessage(args[0], errors[0]);
+			bot.sendMessage(args[0], "You don't have the permissions to edit user permissions");
 			}
 
 		else
@@ -57,23 +55,29 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 		}
 
 	//show perms
-	if(msg.search("showperms") > -1 && args[1] != config.name)
+	if(msg.search("showperms") > -1)
 		{
 		try
 			{
 			username = msg.substring(msg.indexOf("showperms ")+10, msg.length);
 
-			if(perms[username] > 0)
+			if(perms[args[1]] !=1)
 				{
 				bot.sendMessage(args[0], "The user " +username+ " has permissions.");
 				}
 			}
 		catch(e)
 			{
-			bot.sendMessage(args[0], errors[1]);
+			bot.sendMessage(args[0], "The specified user does not exist or does not have permissions");
 			}
 		}
 
 	return true;
 }, "userperms");
+
+core.registerPluginInfo("troutsaver", function(bot, event, args, priv) {
+	bot.sendMessage(args[0], bot.prefix + "Restricts some users from edtiing the brain.js object");
+});
+
+
 
