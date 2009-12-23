@@ -766,6 +766,10 @@ function ScriptBotCore() {
 		this.fireEvent(Event.KICK, [channel+"", kickerNick+"", kickerLogin+"", kickerHostname+"", recipientNick+""]);
 	}
 	this.onMessage = function(channel, sender, login, hostname, message) {
+		if(config.logChannels==true)
+		{
+			IO.writeFile("logs/"+args[0]+".txt", "["+new Date().toGMTString()+"]"+args[1]+": "+msg,true);
+		}
 		this.fireMessageEvent(Event.MESSAGE, [channel+"", sender+"", login+"", hostname+"", message+""], false);
 	}
 	this.onMode = function(channel, sourceNick, sourceLogin, sourceHostname, mode) {

@@ -7,13 +7,16 @@
 	"password": "",
 	"prefix": "@",
 	"joinOnInvite": true,
+	"logChannels": true,
+	"nickServPass": "asdfdsa",
 
 	"server": "theoks.net",
 	"port": 6673,
 
 	"channels": ["#bots"],
 
-	"plugins": ["quit","time","prefix","reload","unhandled"],
+	"plugins": ["quit","time","prefix","reload","unhandled"]
 
-	"nickServPass": "asdfdsa"
+
+
 }
