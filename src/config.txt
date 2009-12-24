@@ -4,13 +4,14 @@
 	"info": "for more details on how to use this config file.",
 
 	"name": "ScriptBot",
+	"fullname": "ScriptBot McAwesomesauce",
 	"password": "",
 	"prefix": "@",
 	"joinOnInvite": true,
 	"logChannels": true,
 	"nickServPass": "asdfdsa",
 
-	"server": "theoks.net",
+	"server": "irc.theoks.net",
 	"port": 6673,
 
 	"channels": ["#bots"],
