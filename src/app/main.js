@@ -10,6 +10,7 @@ var core = createBot();
 // Get the config file contents.
 var config = JSON.parse(IO.readFile("config.txt"));
 print("You are currently running a bot named \""+config.name+"\".\n");
+print("See http://oks.verymad.net/ScriptBot/ for the latest source \n");
 core.password = config.password || "";
 
 // Load any plugins before be join IRC
