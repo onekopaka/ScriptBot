@@ -1,6 +1,6 @@
 /*
 Title: Scriptbot Lock script for learn.js
-Version: 1.4.0.2009.12.20
+Version: 1.5.0.2009.12.23
 Author: Joshua Merrell <joshuamerrell@gmail.com>
 Licensed under GPL.
 */
@@ -25,7 +25,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			{		
 			var lookup = msg.substring(msg.indexOf("lock ")+5, msg.length).toLowerCase();
 			lookup = lookup.replace(/[.?!]$/,"");
-			var description = brain[lookup].replace("+islocked", "");
+			var description = brain[lookup].replace("+isLocked", "");
 				
 			if(perms[args[1]] !=1)
 				{
@@ -34,7 +34,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			
 			else
 				{
-				brain[lookup] = description+"+islocked";
+				brain[lookup] = description+"+isLocked";
 				IO.writeObject("brain", brain);
 				bot.sendMessage(args[0], lookup+ " is locked.");
 				}
@@ -52,7 +52,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 			{		
 			var lookup = msg.substring(msg.indexOf("unlock ")+7, msg.length).toLowerCase();
 			lookup = lookup.replace(/[.?!]$/,"");
-			var description = brain[lookup].replace("+islocked", "");
+			var description = brain[lookup].replace("+isLocked", "");
 				
 			if(perms[args[1]] !=1)
 				{
