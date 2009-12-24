@@ -1,16 +1,15 @@
 /*
 Title: Scriptbot Learning script
-Version: 2.0.1.2009.12.23
+Version: 2.0.2.2009.12.24
 Author: Joshua Merrell <joshuamerrell@gmail.com>
 Contributors: Darren VanBuren <onekopaka@gmail.com>, Nareshkumar Rao A/L A Achutha Rao <inaresh.online@gmail.com>
-Changes: FINALLY FIXED PERMS =D =D =D
-
+Changes: Fixed a small bug with writing vars
 */
+
 core.unregisterPlugin("learn");
 var brain = {};
 var tempBrain = {};
 var perms = {};
-
 perms = IO.readObject("perms");
 
 if(IO.objectExists("brain")) 
@@ -21,7 +20,6 @@ else
 	{
 	IO.writeObject("brain",brain);
 	}
-
 
 core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 
@@ -36,21 +34,21 @@ function writevar()
 
 	var msg = args[args.length-1];
 	tempBrain[0] = msg.substring(0,msg.indexOf(" is")).toLowerCase();
-	tempBrain[1] = msg.substring(msg.indexOf("is ")+3, msg.length).toLowerCase();
+	tempBrain[1] = msg.substring(msg.indexOf("is ")+3, msg.length);
 
-	if(msg.search(" is ") > -1 && msg.indexOf("what is") <0 && msg.indexOf("who is ") < 0 && args[1] != config.name)
+	if(msg.search(" is ") > -1 && msg.indexOf("what is") <0 && msg.indexOf("who is ") <0 && args[1] != config.name)
 		{
 		if(brain[tempBrain[0]] == undefined)
 			{
-			bot.sendMessage(args[0], "doesn't exist");
+			//bot.sendMessage(args[0], "doesn't exist"); //debug
 			writevar();
 			}
 			
-		if(brain[tempBrain[0]] != undefined && brain[tempBrain[0]].indexOf("+isLocked") < 0) //if its not locked
-				{
-				bot.sendMessage(args[0], "not locked");
-				writevar();
-				}
+		else if(brain[tempBrain[0]] != undefined && brain[tempBrain[0]].indexOf("+isLocked") < 0) //if its not locked
+			{
+			//bot.sendMessage(args[0], "not locked"); //debug
+			writevar();
+			}
 
 		else if(brain[tempBrain[0]] && brain[tempBrain[0]].indexOf("+isLocked") > 1) //if its there and locked
 			{
@@ -64,24 +62,21 @@ function writevar()
 				}
 			else if(perms[args[1]] == 1)   // if there are perms
 				{
-				bot.sendMessage(args[0], "perms = " +perms + perms[0] + perms[1]);
-				bot.sendMessage(args[0], "perms[args[1]] = " +perms[args[1]]);
-				bot.sendMessage(args[0], "locked. perms accepted");
+				//bot.sendMessage(args[0], "locked. perms accepted"); //debug
 				writevar();
 				}
 			}
 		}
-	
 
 	else if(msg.indexOf("what is ") > -1)
 		{
 		try
 			{
-			var lookup = msg.substring(msg.indexOf("is ")+3, msg.length).toLowerCase();
+			var lookup = msg.substring(msg.indexOf("is ")+3, msg.length);
 			lookup = lookup.replace(/[.?!]$/,"");
-			var description = brain[lookup].replace("+islocked", "");
+			var description = brain[lookup.toLowerCase()];
+			description = description.replace("+isLocked", "")
 			bot.sendMessage(args[0], args[1] + ": " + lookup + " is " + description);
-			
 			}
 		catch(e)
 			{
@@ -93,11 +88,11 @@ function writevar()
 		{
 		try
 			{
-			var lookup = msg.substring(msg.indexOf("is ")+3, msg.length).toLowerCase();
+			var lookup = msg.substring(msg.indexOf("is ")+3, msg.length);
 			lookup = lookup.replace(/[.?!]$/,"");
-			var description = brain[lookup].replace("+islocked", "");
+			var description = brain[lookup.toLowerCase()];
+			description = description.replace("+isLocked", "");
 			bot.sendMessage(args[0], args[1] + ": " + lookup + " is " + description);
-			
 			}
 		catch(e)
 			{
@@ -105,11 +100,10 @@ function writevar()
 			}
 		}
 
-
 	return true;
 }, "learn");
 
 core.registerPluginInfo("learn", function(bot, event, args, priv) {
-	bot.sendMessage(args[0], bot.prefix + "Used to write variables to brain, Usage: @<var> is <key> to write to brain.js. @what/who is <var> to read from brain.js");
+	bot.sendMessage(args[0], bot.prefix + "Used to write variables to brain, Usage: <prefix><var> is <key> to write to brain.js. <prefix>what/who is <var> to read from brain.js");
 });
 
