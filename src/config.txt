@@ -16,5 +16,5 @@
 
 	"channels": ["#bots"],
 
-	"plugins": ["quit","time","prefix","reload","unhandled","learn"]
+	"plugins": ["quit","time","prefix","reload","unhandled"]
 }
