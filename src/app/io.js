@@ -212,6 +212,32 @@ IO.objectExists = function(name) {
 };
 
 /**
+ * Lists the files and folders of a directory into an array
+ *
+ * @since 2.0.3
+ * @param {string} path The folder or path to read
+ */
+IO.listDir = function(path) {
+	path = path.replace("..", "");
+	try {
+		path = IO.path+path;
+		var dir = new java.io.File(path);
+		var children = dir.list();
+		if (children != null) {
+			for (i=0; i<children.length; i++) {
+				child = new java.io.File(children[i]);
+				if(child.isDirectory()) {
+					children[i] = children[i]+"/";
+				}
+			}
+		}
+		return children;
+	} catch(e) {
+		print("Error path \""+path+"\" does not exist or cannot be read from");
+	}
+};
+ 
+/**
  * Creates a directory or directory path
  *
  * @since 2.0.3
