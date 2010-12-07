@@ -208,4 +208,22 @@ IO.writeObject = function(name, object, funct, tabin) {
  */
 IO.objectExists = function(name) {
 	return Util.isTrue((new java.io.File(IO.path + "plugins/data/" + name + ".js")).exists());
+
+};
+
+/**
+ * Creates a directory or directory path
+ *
+ * @since 2.0.3
+ * @param {string} path The folder or path that will be created
+ */
+IO.mkdir = function(path) {
+	path = path.replace("..", "");
+	path = IO.path+path;
+	try{
+		dir = new java.io.File(path);
+		dir.mkdirs();
+	} catch(e) {
+		print("Error, could not create folder/folders at "+path);
+	}
 };
