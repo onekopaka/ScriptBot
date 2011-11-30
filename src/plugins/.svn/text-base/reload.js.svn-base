@@ -12,12 +12,12 @@
 **************************************************/
 
 // Reloads the specified plugin.
-getCore().registerPlugin("MESSAGE", function(bot, event, args, priv) {
+core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var msg = args[args.length-1].toLowerCase();
 
 	// Only respond to "time" messages.
 	if(msg.substring(0, 6) === "reload") {
-		msg = getUtil().trim(msg.substring(6));
+		msg = Util.trim(msg.substring(6));
 
 		if(msg !== "" && msg !== "reload") {
 			try {
@@ -32,6 +32,6 @@ getCore().registerPlugin("MESSAGE", function(bot, event, args, priv) {
 		return true;
 	}
 });
-getCore().registerPluginInfo("reload", function(bot, event, args, priv) {
+core.registerPluginInfo("reload", function(bot, event, args, priv) {
 	bot.sendMessage(args[0], bot.prefix + "reload [plugin] - Used for testing, (re)loads the given plugin's file.");
 });

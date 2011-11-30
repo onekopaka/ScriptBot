@@ -5,9 +5,9 @@
 ************************************************/
 
 // Unregister old plugins.
-getCore().unregisterPluginByEvent("MESSAGE", "prefix");
+core.unregisterPluginByEvent(Event.MESSAGE, "prefix");
 // Allows users to change the prefix in channel. Mainly just because or testing.
-getCore().registerPlugin("MESSAGE", function(bot, event, args, priv) {
+core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var msg = args[args.length-1].split(/\s+/g);
 	if(msg[0] === "prefix" && msg.length === 1) {
 		bot.sendMessage(args[0], "I can be addressed using '" + bot.prefix + "', " + args[1]);
@@ -18,6 +18,6 @@ getCore().registerPlugin("MESSAGE", function(bot, event, args, priv) {
 		return true;
 	}
 }, "prefix");
-getCore().registerPluginInfo("prefix", function(bot, event, args, priv) {
+core.registerPluginInfo("prefix", function(bot, event, args, priv) {
 	bot.sendMessage(args[0], bot.prefix + "prefix [new] - Displays the current prefix for me. If an optional parameter is given, it will set the current prefix to it.");
 });

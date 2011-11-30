@@ -1,0 +1,53 @@
+8
+
+dir
+373
+svn://oks.verymad.net/ScriptBot/tags/2.0.3/src/java
+svn://oks.verymad.net
+
+
+
+2008-08-20T00:13:30.324931Z
+215
+amcbain
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+bbfb6c9c-1aa5-4725-a35c-bad36a758cac
+
+js.jar
+file
+
+
+
+
+2008-11-23T08:57:33.000000Z
+a6c7a2a0dc8413b8c2182f74227e50f1
+2008-08-20T00:13:30.324931Z
+215
+amcbain
+
+pircbot.jar
+file
+
+
+
+
+2008-11-23T08:57:33.000000Z
+079aba7c02e63787da41be004e49f3cf
+2008-08-20T00:13:30.324931Z
+215
+amcbain
+has-props
+

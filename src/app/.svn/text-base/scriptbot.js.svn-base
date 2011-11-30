@@ -1,9 +1,21 @@
-// Help
-print("");
-print("*NIX    - press ^C to force the program to end");
-print("Windows - press ^C, then type 'y' to force end");
-print("IRC     - use the quit command to close nicely\n");
-
+/**
+ * Creates a default ScriptBotCore. To connect to IRC, see {@link #initialize}.
+ *
+ * @class
+ * ScriptBotCore is intended to be a very basic core for a bot built via JavaScript.
+ * The bot core provides simple system for managing plugins, and very few features.
+ * This core is intended to be extended by the plugins, rather than having the features
+ * directly tacked onto the bot.
+ * <br><br>
+ * If new features are added directly to the bot (because the "expense" of making them
+ * plugins would not be worth it) any plugins that recieve information from this feature
+ * should receive a JS object (not a Java object), even if it requires taking extra
+ * steps to convert.
+ *
+ * @version 2.0.1
+ * @author AMcBain, 2008
+ * @constructor
+ */
 function ScriptBotCore() {
 
 	/**
@@ -325,7 +337,7 @@ function ScriptBotCore() {
 	 * @param {string} [id] An optional id to be assigned to this plugin.
 	 */
 	this.registerPluginInfo = function(plugin, handler, id) {
-		if(getUtil().isUndefined(plugin) || getUtil().isUndefined(plugin)) return;
+		if(Util.isUndefined(plugin) || Util.isUndefined(plugin)) return;
 		if(!(handler instanceof Function)) return;
 
 		handler.id = id;
@@ -361,7 +373,7 @@ function ScriptBotCore() {
 	 * @type boolean
 	 */
 	this.unregisterPlugin = function(plugin, info) {
-		if(getUtil().isUndefined(plugin)) return;
+		if(Util.isUndefined(plugin)) return;
 
 		var somethingRemoved = false;
 
@@ -449,13 +461,13 @@ function ScriptBotCore() {
 	 */
 	this.unregisterPluginByEvent = function(event, id, unrestricted) {
 		if(Event[event] === undefined) throw ("ScriptBotCore::unregisterPluginByEvent - Invalid event type!");
-		if(getUtil().isUndefined(event) || getUtil().isUndefined(id)) return;
+		if(Util.isUndefined(event) || Util.isUndefined(id)) return;
 
 		var keep = [];
 		var somethingRemoved = false;
 
 		// "remove" all associated plugins.
-		var list = (getUtil().isTrue(unrestricted))? unrestrictedHandlers[event] : restrictedHandlers[event];
+		var list = (Util.isTrue(unrestricted))? unrestrictedHandlers[event] : restrictedHandlers[event];
 		if(list) {
 			for(var i = 0; i < list.length; i++) {
 
@@ -469,7 +481,7 @@ function ScriptBotCore() {
 		}
 
 		// Truly remove items we got rid of above.
-		if(getUtil().isTrue(unrestricted)) {
+		if(Util.isTrue(unrestricted)) {
 			unrestrictedHandlers[event] = keep;
 		} else if(restrictedHandlers[event]) {
 			keep["unhandled"] = restrictedHandlers[event]["unhandled"];
@@ -488,7 +500,7 @@ function ScriptBotCore() {
 	 */
 	this.unregisterUnhandledEventPlugin = function(event) {
 		if(Event[event] === undefined) throw ("ScriptBotCore::unregisterUnhandledEventPlugin - Invalid event type!");
-		if(getUtil().isUndefined(event)) return;
+		if(Util.isUndefined(event)) return;
 
 		delete restrictedHandlers[event]["unhandled"];
 	};
@@ -504,12 +516,12 @@ function ScriptBotCore() {
 	 * @type boolean
 	 */
 	this.unregisterPluginInfo = function(plugin, id) {
-		if(getUtil().isUndefined(plugin)) return;
+		if(Util.isUndefined(plugin)) return;
 
 		var somethingRemoved = false;
 
 		// Handle ids.
-		if(getUtil().isTrue(id)) {
+		if(Util.isTrue(id)) {
 			var keep = [];
 
 			// Remove all help entries with the specifiec id.
@@ -834,7 +846,7 @@ function ScriptBotCore() {
 		this.fireEvent(Event.TIME, [sourceNick+"", sourceLogin+"", sourceHostname+"", target+""]);
 	}
 	this.onTopic = function(channel, topic, setBy, date, changed) {
-		this.fireEvent(Event.TOPIC, [channel+"", topic+"", setBy+"", new Date(date), getUtil().isTrue(changed)]);
+		this.fireEvent(Event.TOPIC, [channel+"", topic+"", setBy+"", new Date(date), Util.isTrue(changed)]);
 	}
 	this.onUnknown = function(line) {
 		this.fireEvent(Event.UNKNOWN, [line+""]);
@@ -1090,187 +1102,4 @@ var Event = {
 function createBot() {
 	return (new ScriptBotCoreAdapter(new Packages.org.jibble.pircbot.PircBot(new ScriptBotCore())));
 }
-
-var Util = {
-	Timer:function() {
-	var obj = this;
-	var timer = null;
-	try {
-		timer = new Packages.javax.swing.Timer(1000,
-			new java.awt.event.ActionListener({
-				actionPerformed: function(event) {
-					if(obj.onTimerFired) obj.onTimerFired();
-				}
-			}));
-	} catch(e) {
-		// Our fall back is that the variable timer is null.
-	}
-
-	/**
-	 * The interval of the timer in seconds; the amount of time between each call to {@link #onTimerFired}.
-	 *
- 	 * @since 2.0.1
-	 * @default 1
-	 * @type number
-	 */
-	this.interval = 1;
-	this.__defineGetter__("interval", function() {
-		if(timer) {
-			return (timer.getDelay()/1000);
-		}
-		return (1);
-	});
-	this.__defineSetter__("interval", function(value) {
-		if(timer && !isNaN(Number(value))) {
-			timer.setDelay(Number(value)*1000);
-			timer.setInitialDelay(timer.getDelay());
-		}
-		return (value);
-	});
-
-	/**
-	 * <code>true</code> if the timer is currently active, <code>false</code> otherwise.
-	 *
- 	 * @since 2.0.1
-	 * @default false
-	 * @type boolean
-	 */
-	this.ticking = false;
-	this.__defineGetter__("ticking", function() {
-		if(timer) {
-			return (Util.isTrue(timer.isRunning()))? true : false;
-		}
-		return (false);
-	});
-	this.__defineSetter__("ticking", function(value) {
-		if(typeof value === "boolean" || value instanceof Boolean) {
-			if(timer) {
-				if(Util.isTrue(timer.isRunning())) {
-					timer.stop();
-				} else {
-					timer.start();
-				}
-			}
-		}
-		return (value);
-	});
-
-	/**
-	 * The function called when the timer fires (the timer's interval is up).
-	 *
-	 * @since 2.0.1
-	 * @default undefined
-	 * @type Function
-	 */
-	this.onTimerFired = undefined;
-	},
-	/**
-	 * Checks to see if a Java object is a Java boolean with the value "true",
-	 * and returns a JavaScript boolean literal.Only guaranteed to work
-	 * correctly for Java Boolean objects.
-	 *
-	 * @since 2.0.1
-	 * @param {java.lang.Boolean} value The object to be checked.
-	 * @returns a JavaScript boolean literal.
-	 * @type boolean
-	 */
-	isTrue: function(value) {
-		return (value+"" === "true");
-	},
-
-	/**
-	 * Checks to see if a Java object represents the JavaScript value
-	 * of undefined and returns a JavaScript boolean literal.Only
-	 * guaranteed to work correctly for Java undefined objects.
-	 *
-	 * @since 2.0.1
-	 * @param {Object} value The object to be checked.
-	 * @returns a JavaScript boolean literal.
-	 * @type boolean
-	 */
-	isUndefined: function(value) {
-		return (value+"" === "undefined");
-	},
-
-	/**
-	 * Removes white-space characters from the beginning of the given value.
-	 *
-	 * @since 2.0.1
-	 * @param {string} value The string to be trimmed.
-	 * @returns a string
-	 * @type string
-	 */
-	trim: function(value) {
-		return (value+"").replace(/^\s+/,"").replace(/\s+$/,"");
-
-	},
-
-	/**
-	 * Converts a Java String-Object to a JavaScript string literal.
-	 *
-	 * @since 2.0.1
-	 * @param {java.lang.String} value The object to be converted.
-	 * @returns a JavaScript string literal.
-	 * @type string
-	 */
-	toJsString: function(value) {
-		return (value+"");
-	},
-
-	/**
-	 * Verifies the submitted message is intended for the specified target.
-	 *
-	 * @since 2.0.1
-	 * @param {string} target The target to be checked for.
-	 * @param {string} message The message to be checked.
-	 * @returns <code>true</code> if the message is for the target, <code>false</code> otherwise.
-	 */
-	verifyTarget: function(target, message) {
-		return ((message+"").match(new RegExp("^" + target + "\\W?\\s?")) != null);
-	}
-}
-
-
-// Create a new PircBot instance and start it up.
-var core = createBot();
-storeCore(core);
-setUtil(Util);
-// Get the config file contents.
-var config = JSON.parse(IO.readFile("/root/NetBeansProjects/ScriptBotGUI/ScriptBot/src/config.txt"));
-core.password = config.password || "";
-
-// Load any plugins before be join IRC
-if(config.plugins) {
-	for(var i = 0; i < config.plugins.length; i++) {
-		try {
-			IO.include("plugins/" + config.plugins[i] + ".js");
-		} catch(e) {
-			print("'" + config.plugins[i] + "' failed to load with this error:");
-			print(e);
-		}
-	}
-}
-
-// Connecting to the server sometimes fails.
-try {
-	if(!config.name) throw "Cannot connect to IRC, no bot name specified. Check config file.";
-	if(!config.server) throw "Cannot connect to IRC, no server specified. Check config file.";
-	if(!config.channels) throw "Cannot connect to IRC, no bot name listed. Check config file.";
-	if(config.channels.length === 0) throw "Must specify at least one channel to join IRC. Check config file.";
-	if(config.prefix) core.prefix = config.prefix;
-
-	// Join IRC.
-	core.initialize(config.name, config.server);
-
-	// Join any specified channels.
-	var keys = config.keys || [];
-	for(var i = 0; i < config.channels.length; i++) {
-		core.getBot().joinChannel(config.channels[i], keys[i] || "");
-	}
-} catch(e) {
-	print(e);
-	print("Program terminated.");
-	System.exit(0); // Just in case.
-}
-
 

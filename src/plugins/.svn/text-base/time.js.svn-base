@@ -14,19 +14,19 @@ if(!this["time"]) {
 }
 
 // Remove any other "time" plugins.
-getCore().unregisterPluginByEvent("MESSAGE", "time");
+core.unregisterPluginByEvent(Event.MESSAGE, "time");
 // Reads off the current time somewhere.
-getCore().registerPlugin("MESSAGE", function(bot, event, args, priv) {
+core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 	var msg = args[args.length-1].toLowerCase();
 
 	// Only respond to "time" messages.
 	if(msg === "time" || msg.substring(0, 5) === "time ") {
-		msg = getUtil().trim(msg.substring(4));
+		msg = Util.trim(msg.substring(4));
 		var date = new Date();
 
 		// Handle bot-local time.
 		if(msg.substring(0, 4) === "time") {
-			msg = getUtil().trim(msg.substring(4));
+			msg = Util.trim(msg.substring(4));
 			var hours = date.getHours();
 			var minutes = date.getMinutes();
 			var post = "";
@@ -48,6 +48,6 @@ getCore().registerPlugin("MESSAGE", function(bot, event, args, priv) {
 		return true;
 	}
 }, "time");
-getCore().registerPluginInfo("time", function(bot, event, args, priv) {
+core.registerPluginInfo("time", function(bot, event, args, priv) {
 	bot.sendMessage(args[0], bot.prefix + "time [date|time] [12] - Displays the current time. If \"date\" is supplied, I only return the date, and \"time\" only returns the current time (optionally in 12-hour format).");
 });
