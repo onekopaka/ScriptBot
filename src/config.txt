@@ -1,13 +1,1 @@
-{
-	"info": "This is the config file for ScriptBot. Please visit http://scriptbot.asmcbain.net/examples.xhtml",
-	"info": "for more details on how to use this config file.",
-
-	"name": "ScriptBot",
-	"password": "",
-	"prefix": "@",
-
-	"server": "irc.mozilla.org",
-	"channels": ["#bots-test"],
-
-	"plugins": ["quit","time","prefix","reload", "unhandled"]
-}
+{"name":"NareshkBot","password":"","prefix":"@","server":"irc.mozilla.org","channels":["#bots-test","#bots"],"plugins":["quit","time","prefix","reload","unhandled"]}

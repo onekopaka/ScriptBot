@@ -197,7 +197,7 @@ function ScriptBotCore() {
 		log("Shutting down.");
 
 		this.disconnect();
-		System.exit(0);
+		java.lang.System.exit(0);
 	};
 
 
@@ -1233,6 +1233,7 @@ var Util = {
 
 // Create a new PircBot instance and start it up.
 var core = createBot();
+feedback("RUNNING");
 storeCore(core);
 setUtil(Util);
 // Get the config file contents.
@@ -1261,7 +1262,9 @@ try {
 
 	// Join IRC.
 	core.initialize(config.name, config.server);
-
+	
+	feedback("IRC_CONNECT");
+	
 	// Join any specified channels.
 	var keys = config.keys || [];
 	for(var i = 0; i < config.channels.length; i++) {
@@ -1270,7 +1273,7 @@ try {
 } catch(e) {
 	print(e);
 	print("Program terminated.");
-	System.exit(0); // Just in case.
+	java.lang.System.exit(0); // Just in case.
 }
 
 

@@ -4,14 +4,18 @@
  */
 package ScriptBotGUI;
 
+import com.google.gson.Gson;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.ScriptableObject;
 
 /**
  *
- * @author root
+ * @author Nareshkumar Rao
+ * 
  */
 public class ScriptBotGUI {
 
@@ -65,22 +69,59 @@ public class ScriptBotGUI {
             "storeCore",
             "getCore",
             "getUtil",
-            "setUtil"
+            "setUtil",
+            "feedback"
         };
         scope.defineFunctionProperties(name, ScriptBotGUI.class, ScriptableObject.DONTENUM);
 
         try {
-            cx.evaluateReader(scope, new FileReader("./ScriptBot/src/app/run.js"), "run.js", 0, null);
+            cx.evaluateReader(scope, new FileReader(java.lang.System.getProperty("user.dir")+"/app/run.js"), "run.js", 0, null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
+        System.out.println("Current Directory: "+java.lang.System.getProperty("user.dir"));
         mainGUI.run();
     }
 
     public static void print(String toPrint) {
         System.out.println(toPrint);
     }
+
+    public static configType getConf() {
+        String configFile = readFile(java.lang.System.getProperty("user.dir")+"/config.txt");
+        Gson configJSON = new Gson();
+        configType config = configJSON.fromJson(configFile, configType.class);
+        return config;
+    }
+
+    public static void saveConf(configType conf) {
+        try {
+            // Create file 
+            FileWriter fstream = new FileWriter(java.lang.System.getProperty("user.dir")+"/config.txt");
+            BufferedWriter out = new BufferedWriter(fstream);
+            out.write(new Gson().toJson(conf));
+            //Close the output stream
+            out.close();
+        } catch (Exception e) {//Catch exception if any
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+    public static void feedback(String fb)
+    {
+        if("IRC_CONNECTED".equals(fb)) mainGUI.running(1);
+    }
+}
+
+class configType {
+
+    public String info;
+    public String name;
+    public String password;
+    public String prefix;
+    public String server;
+    public String[] channels;
+    public String[] plugins;
 }
