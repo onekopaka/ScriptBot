@@ -9,6 +9,7 @@
 IO.fetchURL = function(url, asLines) {
 	try {
 
+		System.setProperty("http.agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20120415 Firefox/13.0a2");
 		var link = new java.net.URL(url);
 		var conn = link.openConnection();
 		var reader = new java.io.BufferedReader(new java.io.InputStreamReader(conn.getInputStream()));
