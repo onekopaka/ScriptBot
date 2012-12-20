@@ -28,5 +28,6 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 		url=results.substring(1,results.indexOf('"',2));
 		results = results.substring(results.indexOf(')">')+3,results.indexOf("</a>")).replace(/(<([^>]+)>)/ig,"");
 		bot.sendMessage(args[0], results+" URL: "+url);
+		return true;
 	}
 }, "google");
