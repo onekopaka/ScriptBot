@@ -11,7 +11,7 @@
 	"logChannels": true,
 	"nickServPass": "asdfdsa",
 
-	"server": "irc.theoks.net",
+	"server": "theoks.net",
 	"port": 6673,
 
 	"channels": ["#bots"],

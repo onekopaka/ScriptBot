@@ -31,8 +31,7 @@ core.registerPlugin(Event.MESSAGE, function(bot, event, args, priv) {
 				IO.writeObject("brain", brain);
 				bot.sendMessage(args[0], lookup+ " is locked.");
 			}
-		catch(e)
-		{
+		} catch(e) {
 			bot.sendMessage(args[0], "Error: Variable does not exist");
 		}
 	}
